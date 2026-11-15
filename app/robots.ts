@@ -10,4 +10,3 @@ export default function robots(): MetadataRoute.Robots {
 		sitemap: "https://naveenbhardwaj.vercel.app/sitemap.xml",
 	};
 }
-

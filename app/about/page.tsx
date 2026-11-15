@@ -1,110 +1,141 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Education from "./_components/Education";
-import Experience from "./_components/Experience";
-import Skills from "./_components/Skills";
-import { User, Target, Rocket, Code } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { MapPin, Clock, Users, BadgeCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { business, whatsappLink } from "@/constants/business";
+import AboutIllustration from "@/components/vectors/AboutIllustration";
+import { serviceIconMap } from "@/components/vectors/ServiceIcons";
+import { services } from "@/constants/services";
 
-export default function AboutMe() {
+export default function AboutPage() {
 	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
 		setMounted(true);
 	}, []);
 
+	const stats = [
+		{ icon: BadgeCheck, label: "Years on the job", value: `${business.yearsExperience}+` },
+		{ icon: Users, label: "Jobs completed", value: business.jobsCompleted },
+		{ icon: Clock, label: "Emergency cover", value: "24/7" },
+		{ icon: MapPin, label: "Service area", value: "Faridabad" },
+	];
+
 	return (
-		<div className="relative flex flex-col px-5 md:px-20 py-10 overflow-hidden">
-			{/* Decorative background elements */}
-			<div className="absolute top-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10 animate-pulse" />
-			<div className="absolute bottom-20 right-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDelay: "1s" }} />
-
-			{/* Header Section */}
-			<div className="mb-10">
-				<h1
-					className={cn(
-						"text-4xl md:text-5xl lg:text-6xl uppercase font-bold pt-2 pb-3 bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-100 bg-clip-text text-transparent transition-all duration-700 flex items-center gap-3",
-						mounted
-							? "opacity-100 translate-y-0"
-							: "opacity-0 -translate-y-4"
-					)}
-				>
-					<User className="h-8 w-8 md:h-10 md:w-10 text-primary animate-pulse" />
-					About me
-				</h1>
-				<p
-					className={cn(
-						"text-lg text-muted-foreground max-w-3xl mt-2 transition-all duration-700",
-						mounted
-							? "opacity-100 translate-y-0"
-							: "opacity-0 translate-y-4"
-					)}
-					style={{ transitionDelay: "200ms" }}
-				>
-					Learn more about my journey, skills, and professional experience.
-				</p>
-			</div>
-
-			{/* About Content Section */}
-			<div className="flex flex-col w-full gap-8 py-5 mb-10">
-				<div
-					className={cn(
-						"flex flex-col w-full transition-all duration-700",
-						mounted
-							? "opacity-100 translate-y-0"
-							: "opacity-0 translate-y-4"
-					)}
-					style={{ transitionDelay: "300ms" }}
-				>
-					{/* Intro Card with Icons */}
-					<div className="group relative bg-gradient-to-br from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-800 rounded-lg border-2 border-border p-6 md:p-8 shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 overflow-hidden">
-						{/* Decorative icons */}
-						<div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-							<Code className="h-16 w-16 text-primary animate-pulse" />
-						</div>
-						<div className="absolute bottom-4 left-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-							<Rocket className="h-12 w-12 text-primary animate-pulse" style={{ animationDelay: "0.5s" }} />
-						</div>
-						
-						<div className="relative z-10">
-							<div className="flex items-center gap-2 mb-4">
-								<Target className="h-5 w-5 text-primary animate-pulse" />
-								<h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">About Me</h2>
-							</div>
-							<p className="text-justify text-zinc-700 dark:text-zinc-300 leading-relaxed text-base md:text-lg">
-								{`I am Naveen Bhardwaj, a full-stack developer with a B.Tech in
-								Computer Science and Engineering from Maharaja Surajmal Institute of
-								Technology, graduating with a GPA of 8.879. Currently, I work at
-								Webmuch Software, contributing to a cricket fantasy app and a
-								conference platform called Stagebud using web sockets, Payload CMS,
-								and Next.js. I have interned at Night Lab and Mastork Technologies,
-								working on projects like FanFolium and Spotlet. My goal is to
-								enhance my expertise in real-time applications, backend
-								architecture, and cloud infrastructure, eventually leading
-								large-scale projects.`}
-							</p>
-						</div>
+		<div className="relative w-full overflow-hidden">
+			<section className="w-full bg-navy text-white">
+				<div className="mx-auto grid w-full max-w-[1400px] items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-10 lg:py-20">
+					<div>
+						<p
+							className={cn(
+								"text-sm font-semibold uppercase tracking-widest text-primary transition-all duration-700",
+								mounted ? "opacity-100" : "opacity-0",
+							)}
+						>
+							About the workshop
+						</p>
+						<h1
+							className={cn(
+								"font-display mt-2 text-4xl font-extrabold uppercase leading-none md:text-6xl transition-all duration-700",
+								mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+							)}
+						>
+							{business.owner}
+						</h1>
+						<p className="mt-2 font-display text-xl uppercase tracking-wide text-primary">
+							{business.shortName}
+						</p>
+						<p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
+							For over a decade, {business.owner} has kept Faridabad homes and
+							shops cool, powered, and running — AC gas charging in peak summer,
+							midnight electrical faults, geyser installs before winter, and
+							reliable AMC so breakdowns don&apos;t ruin your day.
+						</p>
+						<p className="mt-3 max-w-xl text-base leading-relaxed text-white/75">
+							Based at {business.address}, we cover Ballabgarh and every major
+							sector. Honest diagnosis, transparent pricing, technicians who
+							respect your home.
+						</p>
+						<Button
+							asChild
+							size="lg"
+							className="mt-8 gap-2 bg-[#25D366] hover:bg-[#1ebe57]"
+						>
+							<a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+								Talk on WhatsApp
+							</a>
+						</Button>
 					</div>
-					
-					{/* Skills Section */}
-					<Skills />
+					<div
+						className={cn(
+							"mx-auto w-full max-w-md text-white/85 transition-all duration-1000 lg:max-w-lg",
+							mounted ? "opacity-100" : "opacity-0",
+						)}
+					>
+						<AboutIllustration className="h-auto w-full" />
+					</div>
 				</div>
-			</div>
+			</section>
 
-			{/* Experience and Education Section */}
-			<div
-				className={cn(
-					"flex flex-col md:flex-row w-full gap-6 transition-all duration-700",
-					mounted
-						? "opacity-100 translate-y-0"
-						: "opacity-0 translate-y-4"
-				)}
-				style={{ transitionDelay: "500ms" }}
-			>
-				<Experience />
-				<Education />
-			</div>
+			<section className="w-full border-y border-border bg-muted/40">
+				<div className="mx-auto grid w-full max-w-[1400px] gap-6 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-10">
+					{stats.map((s) => (
+						<div key={s.label}>
+							<div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary">
+								<s.icon className="h-5 w-5" />
+							</div>
+							<p className="font-display text-3xl font-extrabold uppercase text-navy dark:text-foreground">
+								{s.value}
+							</p>
+							<p className="text-sm text-muted-foreground">{s.label}</p>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section className="w-full px-4 py-16 sm:px-6 md:py-20 lg:px-10">
+				<div className="mx-auto grid w-full max-w-[1400px] items-start gap-12 lg:grid-cols-2">
+					<div>
+						<h2 className="font-display text-3xl font-extrabold uppercase md:text-5xl">
+							Why choose us
+						</h2>
+						<ul className="mt-8 space-y-5 text-muted-foreground">
+							<li className="border-l-4 border-primary pl-4">
+								<strong className="block text-foreground">Same-day response</strong>
+								Most AC and electrical calls in Faridabad get a visit the same day.
+							</li>
+							<li className="border-l-4 border-primary pl-4">
+								<strong className="block text-foreground">All major appliances</strong>
+								AC, geyser, washing machine, fridge, deep freezer, RO — one trusted number.
+							</li>
+							<li className="border-l-4 border-primary pl-4">
+								<strong className="block text-foreground">AMC that actually helps</strong>
+								Scheduled maintenance, priority booking, fewer summer surprises.
+							</li>
+						</ul>
+					</div>
+					<div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+						{services.slice(0, 4).map((service) => {
+							const Icon = serviceIconMap[service.id];
+							return (
+								<div
+									key={service.id}
+									className="flex flex-col items-center gap-3 bg-muted/50 px-3 py-6 text-center"
+								>
+									<div className="h-14 w-14 text-primary">
+										<Icon />
+									</div>
+									<span className="font-display text-sm uppercase tracking-wide">
+										{service.title}
+									</span>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</section>
 		</div>
 	);
 }

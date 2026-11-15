@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import { business } from "@/constants/business";
 
 export const metadata: Metadata = {
-	title: "About Me",
-	description:
-		"Learn about Naveen Bhardwaj - Full-Stack Developer. Explore my education, professional experience, skills, and journey in software development.",
+	title: "About",
+	description: `Meet ${business.owner} — proprietor of ${business.name}. Trusted AC & electrical service across Faridabad.`,
 	openGraph: {
-		title: "About Me | Naveen Bhardwaj",
-		description:
-			"Learn about Naveen Bhardwaj - Full-Stack Developer. Explore my education, professional experience, and skills.",
+		title: `About | ${business.shortName}`,
+		description: `Experienced AC, electrical and appliance technicians serving Faridabad & Ballabgarh.`,
 	},
 };
 
@@ -18,4 +17,3 @@ export default function AboutLayout({
 }) {
 	return children;
 }
-

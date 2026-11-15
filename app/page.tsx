@@ -1,12 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ArrowRight, Sparkles } from "lucide-react";
-import home_image from "@/assets/home_image.jpg";
+import {
+	Phone,
+	Clock,
+	ShieldCheck,
+	Wallet,
+	ArrowRight,
+	Star,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
+import { business, telLink, whatsappLink } from "@/constants/business";
+import { services } from "@/constants/services";
+import { testimonials } from "@/constants/testimonials";
+import HeroIllustration from "@/components/vectors/HeroIllustration";
+import { serviceIconMap } from "@/components/vectors/ServiceIcons";
 
 export default function Home() {
 	const [mounted, setMounted] = useState(false);
@@ -15,162 +25,294 @@ export default function Home() {
 		setMounted(true);
 	}, []);
 
+	const featured = services.slice(0, 4);
+
 	return (
-		<div className="relative flex flex-col-reverse md:flex-row h-full justify-between pt-10 md:pt-32 pb-10 md:pb-20 px-5 md:px-20 gap-10 overflow-hidden">
-			{/* Decorative background elements */}
-			<div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl -z-10 animate-pulse" />
-			<div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDelay: "1s" }} />
-
-			{/* Content Section */}
-			<div className="flex flex-col w-full md:w-2/3 relative z-10">
-				{/* Subtitle with fade-in */}
-				<span
-					className={cn(
-						"text-lg text-zinc-700 dark:text-zinc-300 font-medium mb-2 transition-all duration-700",
-						mounted
-							? "opacity-100 translate-y-0"
-							: "opacity-0 -translate-y-4"
-					)}
-					style={{ transitionDelay: "100ms" }}
-				>
-					<span className="inline-flex items-center gap-2">
-						<Sparkles className="h-4 w-4 text-primary animate-pulse" />
-						Software Developer
-					</span>
-				</span>
-
-				{/* Main heading with gradient and animation */}
-				<h1
-					className={cn(
-						"text-3xl md:text-5xl lg:text-6xl uppercase font-bold pt-2 pb-3 bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-100 bg-clip-text text-transparent transition-all duration-700",
-						mounted
-							? "opacity-100 translate-y-0"
-							: "opacity-0 -translate-y-4"
-					)}
-					style={{ transitionDelay: "200ms" }}
-				>
-					<span className="relative inline-block">
-						Naveen Bhardwaj
-						{/* Animated underline */}
-						<span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-primary to-primary/50 animate-underline" />
-					</span>
-				</h1>
-
-				{/* Description with fade-in */}
-				<p
-					className={cn(
-						"text-justify text-zinc-700 dark:text-zinc-300 leading-relaxed text-base md:text-lg transition-all duration-700",
-						mounted
-							? "opacity-100 translate-y-0"
-							: "opacity-0 translate-y-4"
-					)}
-					style={{ transitionDelay: "400ms" }}
-				>
-					I&apos;m a software developer specializing in full-stack web development. My
-					expertise lies in crafting scalable, secure, and dependable web
-					applications using a range of frameworks and technologies. I thrive on
-					tackling intricate challenges, constantly expanding my skill set, and
-					delivering top-notch code that adheres to the highest standards and
-					best practices in the industry.
-				</p>
-
-				{/* Buttons with enhanced hover effects */}
+		<div className="relative w-full overflow-hidden">
+			{/* Full-bleed hero — one composition */}
+			<section className="relative w-full overflow-hidden bg-navy text-white">
 				<div
-					className={cn(
-						"flex flex-wrap gap-4 py-8 transition-all duration-700",
-						mounted
-							? "opacity-100 translate-y-0"
-							: "opacity-0 translate-y-4"
-					)}
-					style={{ transitionDelay: "600ms" }}
-				>
-					<Link href={"/projects"} className="group">
-						<Button
-							size={"lg"}
-							variant={"default"}
-							className="relative overflow-hidden group-hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"
-						>
-							<span className="relative z-10 flex items-center gap-2">
-								My Projects
-								<ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-							</span>
-							{/* Ripple effect */}
-							<span className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-500 rounded-md" />
-						</Button>
-					</Link>
-					<Link href={"/about"} className="group">
-						<Button
-							size={"lg"}
-							variant={"outline"}
-							className="relative overflow-hidden group-hover:scale-105 transition-all duration-300 border-2 hover:border-primary/50 hover:bg-primary/5"
-						>
-							<span className="relative z-10 flex items-center gap-2">
-								More About Me
-								<ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-							</span>
-							{/* Hover background effect */}
-							<span className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300 rounded-md" />
-						</Button>
-					</Link>
-				</div>
+					className="pointer-events-none absolute inset-0 opacity-[0.12]"
+					style={{
+						backgroundImage:
+							"linear-gradient(rgba(249,115,22,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.35) 1px, transparent 1px)",
+						backgroundSize: "48px 48px",
+					}}
+				/>
+				<div className="pointer-events-none absolute -left-24 top-20 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
+				<div className="pointer-events-none absolute -right-16 bottom-10 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
 
-				{/* Stats or additional info section */}
-				<div
-					className={cn(
-						"flex flex-wrap gap-6 mt-4 transition-all duration-700",
-						mounted
-							? "opacity-100 translate-y-0"
-							: "opacity-0 translate-y-4"
-					)}
-					style={{ transitionDelay: "800ms" }}
-				>
-					<div className="flex flex-col">
-						<span className="text-2xl font-bold text-primary">3+</span>
-						<span className="text-sm text-muted-foreground">Years Experience</span>
+				<div className="relative mx-auto grid min-h-[88vh] w-full max-w-[1400px] items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-10 lg:py-20">
+					<div>
+						<p
+							className={cn(
+								"mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-primary transition-all duration-700 md:text-base",
+								mounted ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0",
+							)}
+						>
+							Faridabad · Ballabgarh · 24/7
+						</p>
+						<h1
+							className={cn(
+								"font-display text-5xl font-extrabold uppercase leading-[0.92] tracking-tight transition-all duration-700 md:text-6xl xl:text-7xl",
+								mounted ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0",
+							)}
+							style={{ transitionDelay: "80ms" }}
+						>
+							<span className="text-primary">Bhardwaj</span>
+							<br />
+							Aircon &amp; Electrical
+						</h1>
+						<p
+							className={cn(
+								"mt-5 max-w-lg text-base text-white/80 transition-all duration-700 md:text-lg",
+								mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+							)}
+							style={{ transitionDelay: "160ms" }}
+						>
+							AC repair &amp; AMC, wiring, geyser, washing machine &amp; more —
+							same-day service by {business.owner}.
+						</p>
+						<div
+							className={cn(
+								"mt-8 flex flex-wrap gap-3 transition-all duration-700",
+								mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+							)}
+							style={{ transitionDelay: "240ms" }}
+						>
+							<Button
+								asChild
+								size="lg"
+								className="gap-2 bg-[#25D366] text-base hover:bg-[#1ebe57]"
+							>
+								<a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+									WhatsApp to Book
+								</a>
+							</Button>
+							<Button
+								asChild
+								size="lg"
+								variant="outline"
+								className="gap-2 border-white/35 bg-transparent text-base text-white hover:bg-white/10 hover:text-white"
+							>
+								<a href={telLink()}>
+									<Phone className="h-4 w-4" />
+									{business.phone}
+								</a>
+							</Button>
+						</div>
 					</div>
-					<div className="flex flex-col">
-						<span className="text-2xl font-bold text-primary">10+</span>
-						<span className="text-sm text-muted-foreground">Projects Completed</span>
-					</div>
-					<div className="flex flex-col">
-						<span className="text-2xl font-bold text-primary">Full-Stack</span>
-						<span className="text-sm text-muted-foreground">Developer</span>
-					</div>
-				</div>
-			</div>
 
-			{/* Image Section with floating animation */}
-			<div
-				className={cn(
-					"relative w-full md:w-1/3 flex items-center justify-center transition-all duration-700",
-					mounted
-						? "opacity-100 translate-x-0 scale-100"
-						: "opacity-0 translate-x-8 scale-95"
-				)}
-				style={{ transitionDelay: "300ms" }}
-			>
-				{/* Glow effect behind image */}
-				<div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full blur-3xl animate-pulse" />
-				
-				{/* Image container with hover effects */}
-				<div className="relative group">
-					<div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
-					
-					<Image
-						src={home_image}
+					<div
 						className={cn(
-							"h-80 md:h-[500px] w-80 md:w-[400px] shadow-2xl aspect-square object-cover rounded-full md:rounded-2xl m-auto bg-orange-300 relative z-10 transition-all duration-500",
-							"group-hover:scale-105 group-hover:rotate-3 group-hover:shadow-primary/20",
+							"relative mx-auto w-full max-w-xl text-white/90 transition-all duration-1000 lg:max-w-none",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
 						)}
-						alt="Naveen Bhardwaj - Software Developer"
-						priority
-					/>
-					
-					{/* Decorative border on hover */}
-					<div className="absolute inset-0 rounded-full md:rounded-2xl border-2 border-primary/0 group-hover:border-primary/30 transition-all duration-500 -z-10" />
+						style={{ transitionDelay: "200ms" }}
+					>
+						<HeroIllustration className="drop-shadow-2xl" />
+					</div>
 				</div>
-			</div>
+			</section>
 
+			{/* Trust strip */}
+			<section className="w-full border-b border-border bg-card">
+				<div className="mx-auto grid w-full max-w-[1400px] gap-0 md:grid-cols-3">
+					{[
+						{
+							icon: Clock,
+							title: "24/7 Emergency",
+							text: "Night calls & peak-summer rush — we show up.",
+						},
+						{
+							icon: ShieldCheck,
+							title: `${business.yearsExperience}+ Years Experience`,
+							text: `${business.jobsCompleted} homes & shops across Faridabad.`,
+						},
+						{
+							icon: Wallet,
+							title: "Affordable Pricing",
+							text: "Clear quotes, genuine parts, AMC that saves money.",
+						},
+					].map((item, i) => (
+						<div
+							key={item.title}
+							className={cn(
+								"flex gap-4 border-border px-6 py-8 transition-all duration-700 md:border-r md:last:border-r-0 md:px-10",
+								mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
+							)}
+							style={{ transitionDelay: `${350 + i * 80}ms` }}
+						>
+							<div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+								<item.icon className="h-5 w-5" />
+							</div>
+							<div>
+								<h2 className="font-display text-xl uppercase tracking-wide">
+									{item.title}
+								</h2>
+								<p className="mt-1 text-sm text-muted-foreground">{item.text}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+			{/* Featured services */}
+			<section className="w-full bg-background px-4 py-16 sm:px-6 md:py-20 lg:px-10">
+				<div className="mx-auto w-full max-w-[1400px]">
+					<div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+						<div>
+							<p className="text-sm font-semibold uppercase tracking-widest text-primary">
+								What we fix
+							</p>
+							<h2 className="font-display mt-1 text-3xl font-extrabold uppercase md:text-5xl">
+								Complete comfort &amp; power
+							</h2>
+						</div>
+						<Button asChild variant="outline" className="gap-2 self-start">
+							<Link href="/services">
+								All services
+								<ArrowRight className="h-4 w-4" />
+							</Link>
+						</Button>
+					</div>
+					<div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+						{featured.map((service, i) => {
+							const Icon = serviceIconMap[service.id];
+							return (
+								<div
+									key={service.id}
+									className={cn(
+										"group relative border-b-4 border-primary bg-muted/40 p-6 transition-all duration-500 hover:-translate-y-1 hover:bg-muted/70",
+										mounted ? "opacity-100" : "opacity-0",
+									)}
+									style={{ transitionDelay: `${180 + i * 70}ms` }}
+								>
+									<div className="mb-4 h-14 w-14 text-primary transition-transform duration-500 group-hover:scale-110">
+										<Icon />
+									</div>
+									<h3 className="font-display text-2xl uppercase tracking-wide">
+										{service.title}
+									</h3>
+									<p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+										{service.description}
+									</p>
+									<a
+										href={whatsappLink(
+											`Hi, I need ${service.title} in Faridabad. Please share availability.`,
+										)}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+									>
+										Book on WhatsApp
+										<ArrowRight className="h-3.5 w-3.5" />
+									</a>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</section>
+
+			{/* Vector capabilities band */}
+			<section className="w-full bg-navy py-16 text-white md:py-20">
+				<div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10">
+					<p className="text-sm font-semibold uppercase tracking-widest text-primary">
+						Built for every home
+					</p>
+					<h2 className="font-display mt-1 text-3xl font-extrabold uppercase md:text-5xl">
+						One number. Every appliance.
+					</h2>
+					<div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
+						{services.map((service, i) => {
+							const Icon = serviceIconMap[service.id];
+							return (
+								<div
+									key={service.id}
+									className={cn(
+										"flex flex-col items-center gap-3 border border-white/10 bg-white/5 px-3 py-5 text-center transition-all duration-500 hover:border-primary/50 hover:bg-white/10",
+										mounted ? "opacity-100" : "opacity-0",
+									)}
+									style={{ transitionDelay: `${100 + i * 40}ms` }}
+								>
+									<div className="h-12 w-12 text-primary">
+										<Icon />
+									</div>
+									<span className="font-display text-xs uppercase leading-tight tracking-wide text-white/85">
+										{service.title.split(" ")[0]}
+									</span>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</section>
+
+			{/* Testimonials */}
+			<section className="w-full px-4 py-16 sm:px-6 md:py-20 lg:px-10">
+				<div className="mx-auto w-full max-w-[1400px]">
+					<p className="text-sm font-semibold uppercase tracking-widest text-primary">
+						Happy customers
+					</p>
+					<h2 className="font-display mt-1 text-3xl font-extrabold uppercase md:text-5xl">
+						Trusted across Faridabad
+					</h2>
+					<div className="mt-10 grid gap-5 md:grid-cols-2">
+						{testimonials.map((t) => (
+							<blockquote
+								key={t.name}
+								className="border-l-4 border-primary bg-muted/45 p-6"
+							>
+								<div className="mb-2 flex gap-0.5 text-primary">
+									{Array.from({ length: 5 }).map((_, i) => (
+										<Star key={i} className="h-4 w-4 fill-primary" />
+									))}
+								</div>
+								<p className="text-sm leading-relaxed text-foreground/90 md:text-base">
+									&ldquo;{t.quote}&rdquo;
+								</p>
+								<footer className="mt-4 text-sm font-semibold">
+									{t.name}
+									<span className="font-normal text-muted-foreground">
+										{" "}
+										· {t.area} · {t.service}
+									</span>
+								</footer>
+							</blockquote>
+						))}
+					</div>
+				</div>
+			</section>
+
+			{/* CTA band */}
+			<section className="w-full bg-gradient-to-r from-navy via-[hsl(213_48%_18%)] to-navy px-4 py-14 text-center text-white sm:px-6 md:py-16 lg:px-10">
+				<h2 className="font-display text-3xl font-extrabold uppercase md:text-5xl">
+					Book your service today
+				</h2>
+				<p className="mx-auto mt-3 max-w-lg text-white/75">
+					WhatsApp your appliance &amp; area — we reply fast and schedule a visit.
+				</p>
+				<div className="mt-8 flex flex-wrap justify-center gap-3">
+					<Button
+						asChild
+						size="lg"
+						className="gap-2 bg-[#25D366] hover:bg-[#1ebe57]"
+					>
+						<a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+							WhatsApp {business.phone}
+						</a>
+					</Button>
+					<Button
+						asChild
+						size="lg"
+						variant="outline"
+						className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
+					>
+						<Link href="/contact">Contact form</Link>
+					</Button>
+				</div>
+			</section>
 		</div>
 	);
 }

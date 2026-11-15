@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import { business } from "@/constants/business";
 
 export const metadata: Metadata = {
 	title: "Contact",
-	description:
-		"Get in touch with Naveen Bhardwaj. Send me a message for collaborations, opportunities, or just to say hello. I'll respond as soon as possible.",
+	description: `Call or WhatsApp ${business.owner} at ${business.phone} for AC & electrical service in Faridabad.`,
 	openGraph: {
-		title: "Contact | Naveen Bhardwaj",
-		description:
-			"Get in touch with Naveen Bhardwaj. Send me a message for collaborations, opportunities, or just to say hello.",
+		title: `Contact | ${business.shortName}`,
+		description: `Book AC, electrical or appliance repair — WhatsApp ${business.phone}.`,
 	},
 };
 
@@ -18,4 +17,3 @@ export default function ContactLayout({
 }) {
 	return children;
 }
-
