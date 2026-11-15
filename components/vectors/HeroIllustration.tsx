@@ -5,135 +5,114 @@ import { cn } from "@/lib/utils";
 export default function HeroIllustration({ className }: { className?: string }) {
 	return (
 		<svg
-			viewBox="0 0 640 520"
+			viewBox="0 0 640 560"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 			className={cn("h-full w-full", className)}
 			aria-hidden
 		>
-			<defs>
-				<linearGradient id="heroGlow" x1="0" y1="0" x2="1" y2="1">
-					<stop offset="0%" stopColor="#F97316" stopOpacity="0.25" />
-					<stop offset="100%" stopOpacity="0" />
-				</linearGradient>
-			</defs>
+			{/* backdrop disc */}
+			<circle cx="330" cy="290" r="230" fill="rgba(255,255,255,0.04)" />
+			<circle cx="330" cy="290" r="180" fill="rgba(249,115,22,0.08)" />
 
-			{/* ambient rings */}
-			<circle cx="340" cy="260" r="210" stroke="currentColor" strokeWidth="1" opacity="0.08" />
-			<circle cx="340" cy="260" r="160" stroke="currentColor" strokeWidth="1" opacity="0.12" />
-			<ellipse cx="320" cy="470" rx="210" ry="22" fill="currentColor" opacity="0.07" />
+			{/* ground */}
+			<ellipse cx="320" cy="500" rx="240" ry="28" fill="rgba(255,255,255,0.08)" />
 
-			{/* city skyline silhouette */}
+			{/* house block */}
+			<path d="M140 250 L320 100 L500 250 V460 H140 Z" fill="rgba(255,255,255,0.08)" />
 			<path
-				d="M40 300h36v100H40zM86 260h44v140H86zM140 280h50v120H140zM200 240h40v160H200zM250 270h56v130H250z"
-				stroke="currentColor"
-				strokeWidth="2"
-				opacity="0.22"
-			/>
-			<path
-				d="M520 290h40v110H520zM570 250h36v150H570z"
-				stroke="currentColor"
-				strokeWidth="2"
-				opacity="0.22"
-			/>
-
-			{/* modern home */}
-			<path
-				d="M160 250 L320 110 L480 250 V410 H160 Z"
-				stroke="currentColor"
-				strokeWidth="3.5"
+				d="M140 250 L320 100 L500 250 V460 H140 Z"
+				stroke="rgba(255,255,255,0.55)"
+				strokeWidth="3"
 				strokeLinejoin="round"
 			/>
-			<path d="M160 250 L320 110 L480 250" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
-			{/* roof accent */}
-			<path d="M300 128 L420 230" stroke="#F97316" strokeWidth="3" strokeLinecap="round" opacity="0.85" />
+			{/* roof fill */}
+			<path d="M140 250 L320 100 L500 250 H140 Z" fill="rgba(249,115,22,0.18)" />
+			<path
+				d="M140 250 L320 100 L500 250"
+				stroke="#F97316"
+				strokeWidth="4"
+				strokeLinejoin="round"
+			/>
 
 			{/* door */}
-			<rect x="286" y="300" width="68" height="110" rx="6" stroke="currentColor" strokeWidth="3" />
-			<circle cx="338" cy="358" r="4" fill="#F97316" />
+			<rect x="282" y="340" width="76" height="120" rx="6" fill="rgba(11,31,58,0.45)" stroke="rgba(255,255,255,0.5)" strokeWidth="2.5" />
+			<circle cx="340" cy="404" r="5" fill="#F97316" />
 
-			{/* windows with orange glow */}
-			<rect x="190" y="270" width="58" height="48" rx="3" stroke="currentColor" strokeWidth="2.5" fill="url(#heroGlow)" />
-			<path d="M219 270v48M190 294h58" stroke="currentColor" strokeWidth="2" opacity="0.55" />
-			<rect x="392" y="270" width="58" height="48" rx="3" stroke="currentColor" strokeWidth="2.5" fill="url(#heroGlow)" />
-			<path d="M421 270v48M392 294h58" stroke="currentColor" strokeWidth="2" opacity="0.55" />
+			{/* windows */}
+			<rect x="180" y="290" width="70" height="58" rx="4" fill="rgba(249,115,22,0.25)" stroke="rgba(255,255,255,0.55)" strokeWidth="2.5" />
+			<path d="M215 290v58M180 319h70" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+			<rect x="390" y="290" width="70" height="58" rx="4" fill="rgba(249,115,22,0.25)" stroke="rgba(255,255,255,0.55)" strokeWidth="2.5" />
+			<path d="M425 290v58M390 319h70" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
 
-			{/* outdoor AC — floating */}
-			<g className="animate-float" style={{ transformOrigin: "120px 360px" }}>
-				<rect x="78" y="318" width="78" height="96" rx="8" stroke="#F97316" strokeWidth="3.5" />
+			{/* indoor split AC */}
+			<g>
+				<rect x="360" y="220" width="120" height="36" rx="10" fill="#F97316" />
+				<rect x="372" y="232" width="96" height="8" rx="4" fill="rgba(255,255,255,0.35)" />
+				{/* cool air */}
 				<path
-					d="M92 340h50M92 356h50M92 372h50M92 388h34"
+					d="M380 268c10 14 20 14 30 0M420 268c10 14 20 14 30 0M460 268c8 12 16 12 24 0"
 					stroke="#F97316"
-					strokeWidth="2.5"
+					strokeWidth="3"
 					strokeLinecap="round"
-					opacity="0.9"
+					opacity="0.7"
 				/>
-				<circle cx="132" cy="392" r="10" stroke="#F97316" strokeWidth="2.5" />
-				<path d="M117 392h30" stroke="#F97316" strokeWidth="2" strokeLinecap="round" />
-				{/* airflow */}
+			</g>
+
+			{/* outdoor condenser — floating */}
+			<g className="animate-float" style={{ transformOrigin: "110px 380px" }}>
+				<rect x="58" y="330" width="100" height="120" rx="12" fill="rgba(249,115,22,0.95)" />
+				<rect x="72" y="348" width="72" height="12" rx="3" fill="rgba(255,255,255,0.3)" />
+				<rect x="72" y="370" width="72" height="12" rx="3" fill="rgba(255,255,255,0.25)" />
+				<rect x="72" y="392" width="72" height="12" rx="3" fill="rgba(255,255,255,0.2)" />
+				<circle cx="108" cy="430" r="14" fill="rgba(11,31,58,0.35)" stroke="rgba(255,255,255,0.5)" strokeWidth="2" />
+				<path d="M96 430h24" stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" strokeLinecap="round" />
+				{/* airflow left */}
 				<path
-					d="M55 340c-8 6-8 16 0 22M48 330c-12 10-12 28 0 38"
+					d="M40 360c-10 8-10 22 0 30M30 348c-16 12-16 40 0 52"
 					stroke="#F97316"
-					strokeWidth="2"
+					strokeWidth="3"
 					strokeLinecap="round"
 					opacity="0.55"
 				/>
 			</g>
 
-			{/* indoor split AC */}
+			{/* technician silhouette at work */}
 			<g>
-				<rect x="360" y="208" width="112" height="32" rx="8" stroke="#F97316" strokeWidth="3.5" />
-				<path d="M378 224h76" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" />
+				{/* body */}
+				<circle cx="250" cy="380" r="22" fill="rgba(255,255,255,0.9)" />
+				{/* hard hat */}
+				<path d="M228 372c0-18 10-30 22-30s22 12 22 30" fill="#F97316" />
+				<path d="M222 372h56" stroke="#F97316" strokeWidth="5" strokeLinecap="round" />
+				{/* torso */}
+				<path d="M218 410c8-28 56-28 64 0v50H218v-50z" fill="rgba(255,255,255,0.85)" />
+				{/* overall accent */}
+				<path d="M236 420v30M264 420v30" stroke="#F97316" strokeWidth="4" strokeLinecap="round" />
+				{/* arm to AC */}
+				<path d="M218 430c-24 6-40 24-44 44" stroke="rgba(255,255,255,0.85)" strokeWidth="10" strokeLinecap="round" />
+				{/* tool */}
+				<path d="M160 470l28-18" stroke="#F97316" strokeWidth="5" strokeLinecap="round" />
+			</g>
+
+			{/* bolt badge */}
+			<g transform="translate(500 120)">
+				<circle cx="40" cy="40" r="42" fill="rgba(249,115,22,0.2)" />
+				<circle cx="40" cy="40" r="32" fill="#F97316" />
 				<path
-					d="M378 248c8 12 16 12 24 0M410 248c8 12 16 12 24 0M442 248c8 12 16 12 24 0"
-					stroke="#F97316"
-					strokeWidth="2.5"
+					d="M46 18 L30 42 H44 L34 66"
+					stroke="white"
+					strokeWidth="5"
 					strokeLinecap="round"
-					opacity="0.75"
-				/>
-			</g>
-
-			{/* electrical panel */}
-			<g transform="translate(490 300)">
-				<rect x="0" y="0" width="70" height="90" rx="6" stroke="#F97316" strokeWidth="3" />
-				<path d="M14 22h42M14 38h42M14 54h28" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" />
-				<circle cx="52" cy="68" r="6" stroke="#F97316" strokeWidth="2" />
-			</g>
-
-			{/* large bolt */}
-			<path
-				d="M560 70 L522 150 H558 L512 250"
-				stroke="#F97316"
-				strokeWidth="5"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-
-			{/* wrench + screwdriver crossed */}
-			<g transform="translate(470 400) rotate(-25)">
-				<path
-					d="M8 8a14 14 0 0018 18L48 44l8-8L34 18A14 14 0 008 8z"
-					stroke="#F97316"
-					strokeWidth="3"
 					strokeLinejoin="round"
 				/>
 			</g>
-			<g transform="translate(500 390) rotate(35)">
-				<path d="M10 10v48M4 16h12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.85" />
-				<path d="M10 58l-6 10h12l-6-10z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" opacity="0.85" />
-			</g>
 
-			{/* accent dots */}
-			{[
-				[48, 90],
-				[70, 120],
-				[40, 150],
-				[600, 280],
-				[620, 320],
-				[590, 360],
-			].map(([x, y]) => (
-				<circle key={`${x}-${y}`} cx={x} cy={y} r="3.5" fill="#F97316" opacity="0.5" />
-			))}
+			{/* floating gauge */}
+			<g transform="translate(500 320)">
+				<circle cx="36" cy="36" r="36" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.35)" strokeWidth="2" />
+				<circle cx="36" cy="36" r="24" stroke="#F97316" strokeWidth="3" />
+				<path d="M36 36 L52 24" stroke="#F97316" strokeWidth="4" strokeLinecap="round" />
+			</g>
 		</svg>
 	);
 }

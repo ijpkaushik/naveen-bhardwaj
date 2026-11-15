@@ -1,86 +1,77 @@
 export default function ServicesIllustration({ className }: { className?: string }) {
 	return (
 		<svg
-			viewBox="0 0 440 360"
+			viewBox="0 0 480 400"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 			className={className}
 			aria-hidden
 		>
-			<circle cx="220" cy="180" r="145" stroke="currentColor" strokeWidth="1.5" opacity="0.12" />
-			<circle cx="220" cy="180" r="105" stroke="currentColor" strokeWidth="1.5" opacity="0.18" />
+			<circle cx="240" cy="200" r="170" fill="rgba(255,255,255,0.04)" />
+			<circle cx="240" cy="200" r="120" fill="rgba(249,115,22,0.08)" />
 
-			{/* central gear */}
-			<circle cx="220" cy="180" r="48" stroke="#F97316" strokeWidth="3.5" />
-			<circle cx="220" cy="180" r="22" stroke="#F97316" strokeWidth="3" />
-			{[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => {
-				const rad = (deg * Math.PI) / 180;
-				const x1 = 220 + Math.cos(rad) * 48;
-				const y1 = 180 + Math.sin(rad) * 48;
-				const x2 = 220 + Math.cos(rad) * 62;
-				const y2 = 180 + Math.sin(rad) * 62;
-				return (
-					<path
-						key={deg}
-						d={`M${x1} ${y1}L${x2} ${y2}`}
-						stroke="#F97316"
-						strokeWidth="6"
-						strokeLinecap="round"
-					/>
-				);
-			})}
+			{/* center badge */}
+			<circle cx="240" cy="200" r="56" fill="#F97316" />
+			{/* wrench in center */}
+			<path
+				d="M222 178a18 18 0 0124 24l28 28 12-12-28-28a18 18 0 01-24-24l8 8-8 8z"
+				fill="white"
+			/>
+			<path d="M248 204l28 28" stroke="white" strokeWidth="8" strokeLinecap="round" />
 
-			{/* AC unit */}
+			{/* AC tile — top left */}
 			<g>
-				<rect x="48" y="70" width="70" height="86" rx="6" stroke="currentColor" strokeWidth="3" />
+				<rect x="48" y="48" width="112" height="112" rx="20" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" strokeWidth="2" />
+				<rect x="68" y="72" width="72" height="22" rx="6" fill="#F97316" />
 				<path
-					d="M60 92h46M60 108h46M60 124h28"
-					stroke="currentColor"
-					strokeWidth="2.5"
-					strokeLinecap="round"
-					opacity="0.8"
-				/>
-				<circle cx="96" cy="134" r="8" stroke="#F97316" strokeWidth="2.5" />
-			</g>
-
-			{/* washing machine */}
-			<g>
-				<rect x="330" y="60" width="70" height="90" rx="6" stroke="currentColor" strokeWidth="3" />
-				<circle cx="365" cy="115" r="24" stroke="#F97316" strokeWidth="3" />
-				<circle cx="365" cy="115" r="10" stroke="#F97316" strokeWidth="2" />
-				<circle cx="345" cy="78" r="3" fill="#F97316" />
-				<circle cx="356" cy="78" r="3" fill="#F97316" />
-			</g>
-
-			{/* geyser */}
-			<g>
-				<rect x="50" y="220" width="52" height="80" rx="8" stroke="currentColor" strokeWidth="3" />
-				<circle cx="76" cy="250" r="14" stroke="#F97316" strokeWidth="2.5" />
-				<path d="M76 242v16M68 250h16" stroke="#F97316" strokeWidth="2" strokeLinecap="round" />
-				<path d="M64 300v10M88 300v10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-			</g>
-
-			{/* electrical bolt panel */}
-			<g>
-				<rect x="330" y="220" width="70" height="80" rx="6" stroke="currentColor" strokeWidth="3" />
-				<path
-					d="M365 238 L350 262 H362 L348 290"
-					stroke="#F97316"
-					strokeWidth="3.5"
-					strokeLinecap="round"
-					strokeLinejoin="round"
-				/>
-			</g>
-
-			{/* wrench */}
-			<g transform="translate(180 290) rotate(-20)">
-				<path
-					d="M8 8a14 14 0 0018 18L48 46l8-8L34 18A14 14 0 008 8z"
+					d="M78 108c8 10 16 10 24 0M102 108c8 10 16 10 24 0"
 					stroke="#F97316"
 					strokeWidth="3"
+					strokeLinecap="round"
+					opacity="0.85"
+				/>
+			</g>
+
+			{/* electrical tile — top right */}
+			<g>
+				<rect x="320" y="48" width="112" height="112" rx="20" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" strokeWidth="2" />
+				<path
+					d="M386 72 L360 112 H382 L356 152"
+					stroke="#F97316"
+					strokeWidth="6"
+					strokeLinecap="round"
 					strokeLinejoin="round"
 				/>
 			</g>
+
+			{/* washing machine — bottom left */}
+			<g>
+				<rect x="48" y="240" width="112" height="112" rx="20" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" strokeWidth="2" />
+				<rect x="68" y="258" width="72" height="78" rx="8" fill="rgba(11,31,58,0.35)" stroke="rgba(255,255,255,0.35)" strokeWidth="2" />
+				<circle cx="104" cy="304" r="22" stroke="#F97316" strokeWidth="4" />
+				<circle cx="104" cy="304" r="8" fill="#F97316" />
+				<circle cx="80" cy="270" r="4" fill="#F97316" />
+				<circle cx="92" cy="270" r="4" fill="rgba(255,255,255,0.5)" />
+			</g>
+
+			{/* geyser — bottom right */}
+			<g>
+				<rect x="320" y="240" width="112" height="112" rx="20" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" strokeWidth="2" />
+				<rect x="350" y="258" width="52" height="78" rx="12" fill="rgba(11,31,58,0.35)" stroke="rgba(255,255,255,0.35)" strokeWidth="2" />
+				<circle cx="376" cy="290" r="16" stroke="#F97316" strokeWidth="4" />
+				<path d="M376 280v20M366 290h20" stroke="#F97316" strokeWidth="3" strokeLinecap="round" />
+				<path d="M362 336v8M390 336v8" stroke="#F97316" strokeWidth="4" strokeLinecap="round" />
+			</g>
+
+			{/* connector dots */}
+			{[
+				[180, 104],
+				[300, 104],
+				[180, 296],
+				[300, 296],
+			].map(([x, y]) => (
+				<circle key={`${x}-${y}`} cx={x} cy={y} r="5" fill="#F97316" opacity="0.7" />
+			))}
 		</svg>
 	);
 }
