@@ -27,8 +27,9 @@ export function Footer() {
 	const currentTheme = mounted ? theme : "system";
 
 	return (
-		<footer className="relative w-full overflow-hidden bg-navy text-white">
-			<div className="mx-auto grid w-full max-w-[1400px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-3 md:py-14 lg:px-10">
+		<footer className="relative w-full overflow-hidden border-t border-white/10 bg-navy text-white dark:border-white/5 dark:bg-[hsl(222_30%_5%)]">
+			<div className="pointer-events-none absolute inset-0 circuit-grid opacity-20" />
+			<div className="relative mx-auto grid w-full max-w-[1400px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-3 md:py-14 lg:px-10">
 				<div>
 					<p className="font-display text-2xl uppercase tracking-wide md:text-3xl">
 						<span className="text-primary">Bhardwaj</span> Aircon

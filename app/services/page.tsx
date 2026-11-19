@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 import { services } from "@/constants/services";
 import { business, telLink, whatsappLink } from "@/constants/business";
 import { serviceIconMap } from "@/components/vectors/ServiceIcons";
-import ServicesIllustration from "@/components/vectors/ServicesIllustration";
 
 export default function ServicesPage() {
 	const [mounted, setMounted] = useState(false);
@@ -19,90 +18,70 @@ export default function ServicesPage() {
 	return (
 		<div className="relative w-full overflow-hidden">
 			<section className="relative w-full overflow-hidden bg-navy text-white">
-				<div
-					className="pointer-events-none absolute inset-0 opacity-[0.1]"
-					style={{
-						backgroundImage:
-							"linear-gradient(rgba(249,115,22,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.4) 1px, transparent 1px)",
-						backgroundSize: "44px 44px",
-					}}
-				/>
-				<div className="pointer-events-none absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
+				<div className="pointer-events-none absolute inset-0 circuit-grid opacity-40" />
 				<div className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
 
-				<div className="relative mx-auto grid w-full max-w-[1400px] items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-10 lg:py-20">
-					<div>
-						<p
-							className={cn(
-								"text-sm font-semibold uppercase tracking-[0.2em] text-primary transition-all duration-700",
-								mounted ? "opacity-100" : "opacity-0",
-							)}
-						>
-							Faridabad · Ballabgarh · same-day
-						</p>
-						<h1
-							className={cn(
-								"font-display mt-3 text-4xl font-extrabold uppercase leading-[0.95] md:text-6xl xl:text-7xl transition-all duration-700",
-								mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
-							)}
-						>
-							Services that
-							<br />
-							<span className="text-primary">keep you cool</span>
-						</h1>
-						<p
-							className={cn(
-								"mt-5 max-w-lg text-base text-white/75 md:text-lg transition-all duration-700",
-								mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
-							)}
-							style={{ transitionDelay: "100ms" }}
-						>
-							AC repair &amp; AMC, electrical wiring, geyser, washing machine,
-							fridge, RO &amp; more — clear pricing from {business.owner}.
-						</p>
-						<div
-							className={cn(
-								"mt-8 flex flex-wrap gap-3 transition-all duration-700",
-								mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
-							)}
-							style={{ transitionDelay: "180ms" }}
-						>
-							<Button
-								asChild
-								size="lg"
-								className="h-12 gap-2 bg-[#25D366] px-6 text-base hover:bg-[#1ebe57]"
-							>
-								<a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-									<MessageCircle className="h-5 w-5" />
-									WhatsApp to book
-								</a>
-							</Button>
-							<Button
-								asChild
-								size="lg"
-								variant="outline"
-								className="h-12 gap-2 border-white/30 bg-transparent px-6 text-base text-white hover:bg-white/10 hover:text-white"
-							>
-								<a href={telLink()}>
-									<Phone className="h-5 w-5" />
-									{business.phone}
-								</a>
-							</Button>
-						</div>
-					</div>
-
-					<div
+				<div className="relative mx-auto w-full max-w-[1400px] px-4 py-14 sm:px-6 lg:px-10 lg:py-20">
+					<p
 						className={cn(
-							"mx-auto w-full max-w-md text-white/85 transition-all duration-1000 lg:max-w-lg",
+							"text-sm font-semibold uppercase tracking-[0.2em] text-primary transition-all duration-700",
 							mounted ? "opacity-100" : "opacity-0",
 						)}
 					>
-						<ServicesIllustration className="h-auto w-full" />
+						Faridabad · Ballabgarh · same-day
+					</p>
+					<h1
+						className={cn(
+							"font-display mt-3 max-w-3xl text-4xl font-extrabold uppercase leading-[0.95] md:text-6xl xl:text-7xl transition-all duration-700",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+						)}
+					>
+						Services that
+						<br />
+						<span className="text-primary">keep you cool</span>
+					</h1>
+					<p
+						className={cn(
+							"mt-5 max-w-lg text-base text-white/75 md:text-lg transition-all duration-700",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+						)}
+						style={{ transitionDelay: "100ms" }}
+					>
+						AC repair &amp; AMC, electrical wiring, geyser, washing machine,
+						fridge, RO &amp; more — clear pricing from {business.owner}.
+					</p>
+					<div
+						className={cn(
+							"mt-8 flex flex-wrap gap-3 transition-all duration-700",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+						)}
+						style={{ transitionDelay: "180ms" }}
+					>
+						<Button
+							asChild
+							size="lg"
+							className="h-12 gap-2 bg-[#25D366] px-6 text-base hover:bg-[#1ebe57]"
+						>
+							<a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+								<MessageCircle className="h-5 w-5" />
+								WhatsApp to book
+							</a>
+						</Button>
+						<Button
+							asChild
+							size="lg"
+							variant="outline"
+							className="h-12 gap-2 border-white/30 bg-transparent px-6 text-base text-white hover:bg-white/10 hover:text-white"
+						>
+							<a href={telLink()}>
+								<Phone className="h-5 w-5" />
+								{business.phone}
+							</a>
+						</Button>
 					</div>
 				</div>
 			</section>
 
-			{/* quick icon strip */}
 			<section className="w-full border-b border-border bg-card">
 				<div className="mx-auto flex w-full max-w-[1400px] gap-2 overflow-x-auto px-4 py-5 sm:px-6 lg:grid lg:grid-cols-8 lg:gap-3 lg:overflow-visible lg:px-10">
 					{services.map((service, i) => {

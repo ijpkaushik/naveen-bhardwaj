@@ -29,67 +29,79 @@
 		clip: auto;
 		white-space: normal;
 	}
+
+	.circuit-grid {
+		background-image:
+			linear-gradient(hsl(var(--circuit) / 0.14) 1px, transparent 1px),
+			linear-gradient(90deg, hsl(var(--circuit) / 0.14) 1px, transparent 1px);
+		background-size: 40px 40px;
+	}
 }
 
 @layer base {
 	:root {
-		/* Navy + safety orange trades brand */
-		--background: 210 40% 98%;
-		--foreground: 213 50% 12%;
+		/* Light — workshop daylight: warm steel + electric amber */
+		--background: 40 20% 97%;
+		--foreground: 222 35% 11%;
 		--card: 0 0% 100%;
-		--card-foreground: 213 50% 12%;
+		--card-foreground: 222 35% 11%;
 		--popover: 0 0% 100%;
-		--popover-foreground: 213 50% 12%;
-		--primary: 24 95% 53%;
-		--primary-foreground: 0 0% 100%;
-		--primary-background: 24 100% 92%;
-		--secondary: 213 45% 16%;
-		--secondary-foreground: 0 0% 100%;
-		--muted: 210 30% 94%;
-		--muted-foreground: 213 20% 40%;
-		--accent: 210 35% 93%;
-		--accent-foreground: 213 50% 12%;
-		--destructive: 0 84.2% 60.2%;
+		--popover-foreground: 222 35% 11%;
+		--primary: 36 95% 48%;
+		--primary-foreground: 222 40% 8%;
+		--primary-background: 36 100% 94%;
+		--secondary: 222 28% 16%;
+		--secondary-foreground: 40 20% 98%;
+		--muted: 40 16% 93%;
+		--muted-foreground: 222 12% 38%;
+		--accent: 36 40% 94%;
+		--accent-foreground: 222 35% 11%;
+		--destructive: 0 72% 51%;
 		--destructive-foreground: 0 0% 100%;
-		--border: 213 25% 88%;
-		--input: 213 25% 88%;
-		--ring: 24 95% 53%;
-		--navy: 213 55% 14%;
-		--radius: 0.5rem;
-		--chart-1: 24 95% 53%;
-		--chart-2: 213 55% 30%;
-		--chart-3: 197 37% 24%;
-		--chart-4: 43 74% 66%;
-		--chart-5: 27 87% 67%;
+		--border: 35 12% 86%;
+		--input: 35 12% 86%;
+		--ring: 36 95% 48%;
+		--navy: 222 32% 14%;
+		--circuit: 36 95% 48%;
+		--surface-elevated: 0 0% 100%;
+		--radius: 0.4rem;
+		--chart-1: 36 95% 48%;
+		--chart-2: 222 32% 28%;
+		--chart-3: 25 70% 45%;
+		--chart-4: 200 40% 40%;
+		--chart-5: 15 80% 50%;
 	}
 
 	.dark {
-		--background: 213 50% 8%;
-		--foreground: 210 40% 96%;
-		--card: 213 45% 12%;
-		--card-foreground: 210 40% 96%;
-		--popover: 213 45% 12%;
-		--popover-foreground: 210 40% 96%;
-		--primary: 24 95% 53%;
-		--primary-foreground: 0 0% 100%;
-		--primary-background: 24 60% 20%;
-		--secondary: 213 40% 22%;
-		--secondary-foreground: 210 40% 96%;
-		--muted: 213 35% 16%;
-		--muted-foreground: 210 20% 65%;
-		--accent: 213 35% 18%;
-		--accent-foreground: 210 40% 96%;
-		--destructive: 0 72.2% 50.6%;
+		/* Dark — night workshop: deep slate + hot amber glow */
+		--background: 222 30% 6%;
+		--foreground: 40 20% 96%;
+		--card: 222 26% 10%;
+		--card-foreground: 40 20% 96%;
+		--popover: 222 26% 10%;
+		--popover-foreground: 40 20% 96%;
+		--primary: 38 96% 52%;
+		--primary-foreground: 222 40% 8%;
+		--primary-background: 38 45% 14%;
+		--secondary: 222 22% 18%;
+		--secondary-foreground: 40 20% 96%;
+		--muted: 222 22% 13%;
+		--muted-foreground: 40 10% 68%;
+		--accent: 222 22% 15%;
+		--accent-foreground: 40 20% 96%;
+		--destructive: 0 70% 48%;
 		--destructive-foreground: 0 0% 100%;
-		--border: 213 30% 20%;
-		--input: 213 30% 20%;
-		--ring: 24 95% 53%;
-		--navy: 213 55% 70%;
-		--chart-1: 24 95% 53%;
-		--chart-2: 213 55% 50%;
-		--chart-3: 30 80% 55%;
-		--chart-4: 280 65% 60%;
-		--chart-5: 340 75% 55%;
+		--border: 222 18% 18%;
+		--input: 222 18% 18%;
+		--ring: 38 96% 52%;
+		--navy: 222 30% 8%;
+		--circuit: 38 96% 52%;
+		--surface-elevated: 222 24% 12%;
+		--chart-1: 38 96% 52%;
+		--chart-2: 200 55% 50%;
+		--chart-3: 25 80% 55%;
+		--chart-4: 160 40% 45%;
+		--chart-5: 15 85% 55%;
 	}
 }
 
@@ -98,13 +110,14 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground antialiased;
 	}
 	h1,
 	h2,
 	h3,
 	.font-display {
 		font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+		letter-spacing: 0.01em;
 	}
 }
 

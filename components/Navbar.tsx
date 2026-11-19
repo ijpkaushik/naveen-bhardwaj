@@ -37,8 +37,8 @@ const Navbar = () => {
 			className={cn(
 				"sticky top-0 z-50 w-full border-b transition-all duration-300",
 				scrolled
-					? "border-border/80 bg-background/95 shadow-sm backdrop-blur-md"
-					: "border-transparent bg-navy text-white",
+					? "border-border/70 bg-background/90 shadow-[0_8px_30px_rgba(0,0,0,0.06)] backdrop-blur-xl dark:border-border/50 dark:bg-background/85 dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
+					: "border-white/5 bg-navy text-white dark:border-white/10",
 			)}
 		>
 			<div className="mx-auto flex w-full max-w-[1400px] items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-10">
@@ -46,7 +46,7 @@ const Navbar = () => {
 					<span
 						className={cn(
 							"font-display text-xl font-extrabold uppercase tracking-wide md:text-2xl",
-							scrolled ? "text-navy dark:text-foreground" : "text-white",
+							scrolled ? "text-foreground" : "text-white",
 						)}
 					>
 						<span className="text-primary">Bhardwaj</span> Aircon

@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Users, BadgeCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { business, whatsappLink } from "@/constants/business";
-import AboutIllustration from "@/components/vectors/AboutIllustration";
 import { serviceIconMap } from "@/components/vectors/ServiceIcons";
 import { services } from "@/constants/services";
 
@@ -25,57 +24,48 @@ export default function AboutPage() {
 
 	return (
 		<div className="relative w-full overflow-hidden">
-			<section className="w-full bg-navy text-white">
-				<div className="mx-auto grid w-full max-w-[1400px] items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-10 lg:py-20">
-					<div>
-						<p
-							className={cn(
-								"text-sm font-semibold uppercase tracking-widest text-primary transition-all duration-700",
-								mounted ? "opacity-100" : "opacity-0",
-							)}
-						>
-							About the workshop
-						</p>
-						<h1
-							className={cn(
-								"font-display mt-2 text-4xl font-extrabold uppercase leading-none md:text-6xl transition-all duration-700",
-								mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
-							)}
-						>
-							{business.owner}
-						</h1>
-						<p className="mt-2 font-display text-xl uppercase tracking-wide text-primary">
-							{business.shortName}
-						</p>
-						<p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-							For over a decade, {business.owner} has kept Faridabad homes and
-							shops cool, powered, and running — AC gas charging in peak summer,
-							midnight electrical faults, geyser installs before winter, and
-							reliable AMC so breakdowns don&apos;t ruin your day.
-						</p>
-						<p className="mt-3 max-w-xl text-base leading-relaxed text-white/75">
-							Based at {business.address}, we cover Ballabgarh and every major
-							sector. Honest diagnosis, transparent pricing, technicians who
-							respect your home.
-						</p>
-						<Button
-							asChild
-							size="lg"
-							className="mt-8 gap-2 bg-[#25D366] hover:bg-[#1ebe57]"
-						>
-							<a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-								Talk on WhatsApp
-							</a>
-						</Button>
-					</div>
-					<div
+			<section className="relative w-full overflow-hidden bg-navy text-white">
+				<div className="pointer-events-none absolute inset-0 circuit-grid opacity-40" />
+				<div className="relative mx-auto w-full max-w-[1400px] px-4 py-16 sm:px-6 lg:px-10 lg:py-20">
+					<p
 						className={cn(
-							"mx-auto w-full max-w-md text-white/85 transition-all duration-1000 lg:max-w-lg",
+							"text-sm font-semibold uppercase tracking-widest text-primary transition-all duration-700",
 							mounted ? "opacity-100" : "opacity-0",
 						)}
 					>
-						<AboutIllustration className="h-auto w-full" />
-					</div>
+						About the workshop
+					</p>
+					<h1
+						className={cn(
+							"font-display mt-2 max-w-3xl text-4xl font-extrabold uppercase leading-none md:text-6xl transition-all duration-700",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+						)}
+					>
+						{business.owner}
+					</h1>
+					<p className="mt-2 font-display text-xl uppercase tracking-wide text-primary">
+						{business.shortName}
+					</p>
+					<p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
+						For over a decade, {business.owner} has kept Faridabad homes and
+						shops cool, powered, and running — AC gas charging in peak summer,
+						midnight electrical faults, geyser installs before winter, and
+						reliable AMC so breakdowns don&apos;t ruin your day.
+					</p>
+					<p className="mt-3 max-w-2xl text-base leading-relaxed text-white/75">
+						Based at {business.address}, we cover Ballabgarh and every major
+						sector. Honest diagnosis, transparent pricing, technicians who
+						respect your home.
+					</p>
+					<Button
+						asChild
+						size="lg"
+						className="mt-8 gap-2 bg-[#25D366] hover:bg-[#1ebe57]"
+					>
+						<a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+							Talk on WhatsApp
+						</a>
+					</Button>
 				</div>
 			</section>
 

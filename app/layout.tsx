@@ -22,19 +22,19 @@ const body = DM_Sans({
 
 export const metadata: Metadata = {
 	title: {
-		default: `${business.shortName} | AC & Electrical Services Faridabad`,
+		default: `${business.shortName} | Electrical & Aircon Portfolio Faridabad`,
 		template: `%s | ${business.shortName}`,
 	},
 	description:
-		"Bhardwaj Aircon & Electrical Services by Naveen Bhardwaj — AC repair & AMC, electrical wiring, geyser, washing machine, fridge & RO service across Faridabad. 24/7 emergency support.",
+		"Naveen Bhardwaj — electrical mechanic & AC specialist portfolio. Work gallery, AC AMC, wiring, geyser and appliance service across Faridabad. 24/7 support.",
 	keywords: [
 		"Bhardwaj Aircon",
 		"Naveen Bhardwaj",
+		"electrical mechanic Faridabad",
 		"AC repair Faridabad",
 		"AC AMC Faridabad",
 		"Electrical services Faridabad",
-		"Geyser repair",
-		"Washing machine repair",
+		"work gallery",
 		"Ballabgarh",
 		"Sector 65 HUDA Market",
 	],

@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { business, whatsappLink } from "@/constants/business";
 
 export default function WhatsAppFab() {
+	const pathname = usePathname();
+	if (pathname?.startsWith("/admin")) return null;
+
 	return (
 		<Link
 			href={whatsappLink()}

@@ -14,7 +14,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { business, telLink, whatsappLink } from "@/constants/business";
-import ContactIllustration from "@/components/vectors/ContactIllustration";
 
 export default function Contact() {
 	const [mounted, setMounted] = useState(false);
@@ -30,7 +29,6 @@ export default function Contact() {
 			href: telLink(),
 			icon: Phone,
 			external: false,
-			accent: "border-primary/40 hover:border-primary",
 		},
 		{
 			label: "Email",
@@ -38,7 +36,6 @@ export default function Contact() {
 			href: `mailto:${business.email}`,
 			icon: Mail,
 			external: false,
-			accent: "border-border hover:border-primary/50",
 		},
 		{
 			label: "Instagram",
@@ -46,98 +43,77 @@ export default function Contact() {
 			href: business.instagram,
 			icon: Instagram,
 			external: true,
-			accent: "border-border hover:border-primary/50",
 		},
 	];
 
 	return (
 		<div className="relative w-full overflow-hidden">
-			{/* Hero */}
 			<section className="relative w-full overflow-hidden bg-navy text-white">
-				<div
-					className="pointer-events-none absolute inset-0 opacity-[0.1]"
-					style={{
-						backgroundImage:
-							"linear-gradient(rgba(249,115,22,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.4) 1px, transparent 1px)",
-						backgroundSize: "44px 44px",
-					}}
-				/>
+				<div className="pointer-events-none absolute inset-0 circuit-grid opacity-40" />
 				<div className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
 
-				<div className="relative mx-auto grid w-full max-w-[1400px] items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-10 lg:py-20">
-					<div>
-						<p
-							className={cn(
-								"text-sm font-semibold uppercase tracking-[0.2em] text-primary transition-all duration-700",
-								mounted ? "opacity-100" : "opacity-0",
-							)}
-						>
-							24/7 · Faridabad &amp; Ballabgarh
-						</p>
-						<h1
-							className={cn(
-								"font-display mt-3 text-4xl font-extrabold uppercase leading-[0.95] md:text-6xl xl:text-7xl transition-all duration-700",
-								mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
-							)}
-						>
-							Book a visit
-							<br />
-							<span className="text-primary">in one tap</span>
-						</h1>
-						<p
-							className={cn(
-								"mt-5 max-w-lg text-base text-white/75 md:text-lg transition-all duration-700",
-								mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
-							)}
-							style={{ transitionDelay: "100ms" }}
-						>
-							Message your appliance, area, and preferred time.{" "}
-							{business.owner} replies on WhatsApp and schedules — often the
-							same day.
-						</p>
-						<div
-							className={cn(
-								"mt-8 flex flex-wrap gap-3 transition-all duration-700",
-								mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
-							)}
-							style={{ transitionDelay: "180ms" }}
-						>
-							<Button
-								asChild
-								size="lg"
-								className="h-12 gap-2 bg-[#25D366] px-6 text-base hover:bg-[#1ebe57]"
-							>
-								<a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-									<MessageCircle className="h-5 w-5" />
-									WhatsApp {business.phone}
-								</a>
-							</Button>
-							<Button
-								asChild
-								size="lg"
-								variant="outline"
-								className="h-12 gap-2 border-white/30 bg-transparent px-6 text-base text-white hover:bg-white/10 hover:text-white"
-							>
-								<a href={telLink()}>
-									<Phone className="h-5 w-5" />
-									Call now
-								</a>
-							</Button>
-						</div>
-					</div>
-
-					<div
+				<div className="relative mx-auto w-full max-w-[1400px] px-4 py-14 sm:px-6 lg:px-10 lg:py-20">
+					<p
 						className={cn(
-							"mx-auto w-full max-w-md text-white/85 transition-all duration-1000 lg:max-w-lg",
+							"text-sm font-semibold uppercase tracking-[0.2em] text-primary transition-all duration-700",
 							mounted ? "opacity-100" : "opacity-0",
 						)}
 					>
-						<ContactIllustration className="h-auto w-full" />
+						24/7 · Faridabad &amp; Ballabgarh
+					</p>
+					<h1
+						className={cn(
+							"font-display mt-3 max-w-3xl text-4xl font-extrabold uppercase leading-[0.95] md:text-6xl xl:text-7xl transition-all duration-700",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+						)}
+					>
+						Book a visit
+						<br />
+						<span className="text-primary">in one tap</span>
+					</h1>
+					<p
+						className={cn(
+							"mt-5 max-w-lg text-base text-white/75 md:text-lg transition-all duration-700",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+						)}
+						style={{ transitionDelay: "100ms" }}
+					>
+						Message your appliance, area, and preferred time.{" "}
+						{business.owner} replies on WhatsApp and schedules — often the
+						same day.
+					</p>
+					<div
+						className={cn(
+							"mt-8 flex flex-wrap gap-3 transition-all duration-700",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+						)}
+						style={{ transitionDelay: "180ms" }}
+					>
+						<Button
+							asChild
+							size="lg"
+							className="h-12 gap-2 bg-[#25D366] px-6 text-base hover:bg-[#1ebe57]"
+						>
+							<a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+								<MessageCircle className="h-5 w-5" />
+								WhatsApp {business.phone}
+							</a>
+						</Button>
+						<Button
+							asChild
+							size="lg"
+							variant="outline"
+							className="h-12 gap-2 border-white/30 bg-transparent px-6 text-base text-white hover:bg-white/10 hover:text-white"
+						>
+							<a href={telLink()}>
+								<Phone className="h-5 w-5" />
+								Call now
+							</a>
+						</Button>
 					</div>
 				</div>
 			</section>
 
-			{/* Quick channels */}
 			<section className="w-full border-b border-border bg-background">
 				<div className="mx-auto grid w-full max-w-[1400px] md:grid-cols-3">
 					{channels.map((item, i) => {
@@ -177,8 +153,7 @@ export default function Contact() {
 				</div>
 			</section>
 
-			{/* Location + hours */}
-			<section className="w-full px-4 py-14 sm:px-6 md:py-18 lg:px-10 lg:py-20">
+			<section className="w-full px-4 py-14 sm:px-6 lg:px-10 lg:py-20">
 				<div className="mx-auto grid w-full max-w-[1400px] gap-8 lg:grid-cols-2">
 					<div
 						className={cn(
