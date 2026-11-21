@@ -146,6 +146,8 @@ export default function GalleryClient({ items }: Props) {
 								className="max-h-[85vh] w-full"
 								controls
 								autoPlay
+								muted
+								playsInline
 							/>
 						)}
 					</div>

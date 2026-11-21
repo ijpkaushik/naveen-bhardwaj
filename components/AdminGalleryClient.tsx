@@ -171,6 +171,8 @@ export default function AdminGalleryClient({ initialItems }: Props) {
 										src={item.url}
 										className="h-full w-full object-cover"
 										controls
+										muted
+										playsInline
 										preload="metadata"
 									/>
 								)}
