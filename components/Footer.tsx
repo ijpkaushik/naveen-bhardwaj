@@ -38,6 +38,23 @@ export function Footer() {
 					<p className="mt-5 text-sm text-white/80">
 						© {new Date().getFullYear()} {business.owner}. All rights reserved.
 					</p>
+					<nav
+						aria-label="Legal"
+						className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-white/65"
+					>
+						<Link href="/privacy" className="transition-colors hover:text-primary">
+							Privacy Policy
+						</Link>
+						<Link href="/terms" className="transition-colors hover:text-primary">
+							Terms of Service
+						</Link>
+						<Link href="/about" className="transition-colors hover:text-primary">
+							About
+						</Link>
+						<Link href="/contact" className="transition-colors hover:text-primary">
+							Contact
+						</Link>
+					</nav>
 				</div>
 
 				<div className="space-y-3 text-sm">

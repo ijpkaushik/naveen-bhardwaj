@@ -1,12 +1,14 @@
 import { MetadataRoute } from "next";
+import { siteUrl } from "@/constants/site";
 
 export default function robots(): MetadataRoute.Robots {
 	return {
 		rules: {
 			userAgent: "*",
 			allow: "/",
-			disallow: ["/api/"],
+			disallow: ["/api/", "/admin", "/admin/"],
 		},
-		sitemap: "https://naveenbhardwaj.vercel.app/sitemap.xml",
+		sitemap: `${siteUrl}/sitemap.xml`,
+		host: siteUrl,
 	};
 }

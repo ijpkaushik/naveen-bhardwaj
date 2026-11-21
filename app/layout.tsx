@@ -6,7 +6,11 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Footer } from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import CookieConsent from "@/components/CookieConsent";
+import AdSenseScript from "@/components/AdSenseScript";
+import JsonLd from "@/components/JsonLd";
 import { business } from "@/constants/business";
+import { siteUrl } from "@/constants/site";
 
 const display = Barlow_Condensed({
 	subsets: ["latin"],
@@ -21,6 +25,7 @@ const body = DM_Sans({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL(siteUrl),
 	title: {
 		default: `${business.shortName} | Electrical & Aircon Portfolio Faridabad`,
 		template: `%s | ${business.shortName}`,
@@ -40,10 +45,14 @@ export const metadata: Metadata = {
 	],
 	authors: [{ name: business.owner }],
 	creator: business.owner,
+	publisher: business.name,
+	alternates: {
+		canonical: "/",
+	},
 	openGraph: {
 		type: "website",
 		locale: "en_IN",
-		url: "https://naveenbhardwaj.vercel.app",
+		url: siteUrl,
 		title: `${business.name} | Faridabad`,
 		description:
 			"24/7 AC, electrical & appliance repair in Faridabad. Call or WhatsApp Naveen Bhardwaj today.",
@@ -66,6 +75,7 @@ export const metadata: Metadata = {
 			"max-snippet": -1,
 		},
 	},
+	category: "business",
 };
 
 export default function RootLayout({
@@ -79,6 +89,8 @@ export default function RootLayout({
 				className={`${display.variable} ${body.variable} flex min-h-screen flex-col bg-background font-sans antialiased`}
 				style={{ fontFamily: "var(--font-body), ui-sans-serif, system-ui, sans-serif" }}
 			>
+				<JsonLd />
+				<AdSenseScript />
 				<a
 					href="#main-content"
 					className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:shadow-lg"
@@ -99,6 +111,7 @@ export default function RootLayout({
 						<Footer />
 					</div>
 					<WhatsAppFab />
+					<CookieConsent />
 				</ThemeProvider>
 			</body>
 		</html>
