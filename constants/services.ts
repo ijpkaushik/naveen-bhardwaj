@@ -112,8 +112,8 @@ export const services: Service[] = [
 		title: "Panel AC Repair & Service",
 		shortTitle: "Panel AC",
 		description:
-			"Panel AC servicing for offices and shops — cooling issues, PCB, gas top-up and filter cleaning.",
-		highlights: ["Office & shop", "Gas top-up", "PCB", "Filter clean"],
+			"Panel AC servicing for offices and shops — cooling issues, PCB and filter cleaning.",
+		highlights: ["Office & shop", "PCB", "Filter clean", "Repair"],
 	},
 	{
 		id: "cassette-ac",
@@ -121,8 +121,8 @@ export const services: Service[] = [
 		title: "Cassette AC Repair & Service",
 		shortTitle: "Cassette AC",
 		description:
-			"4-way cassette AC install and repair — drain pump, gas charging, remote/PCB faults and ceiling unit service.",
-		highlights: ["4-way cassette", "Drain pump", "Gas charging", "Ceiling unit"],
+			"4-way cassette AC install and repair — gas charging, remote/PCB faults and ceiling unit service.",
+		highlights: ["4-way cassette", "Gas charging", "Ceiling unit", "Repair"],
 	},
 	{
 		id: "electric-geyser",
