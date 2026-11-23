@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 		"RO repair Faridabad",
 		"electrical services Faridabad",
 		"Ballabgarh",
-		"Sector 65 HUDA Market",
+		"Parvatiya Colony Sector 22 Faridabad",
 	],
 	authors: [{ name: business.owner }],
 	creator: business.owner,

@@ -14,9 +14,11 @@ export default function JsonLd() {
 		image: `${siteUrl}/gallery/seed-workshop.jpg`,
 		address: {
 			"@type": "PostalAddress",
-			streetAddress: "Shop No. 116-117, Sector 65, HUDA Market",
+			streetAddress:
+				"House No-64, 60 Feet Road, Near Janhit Dharmasala, Parvatiya Colony Part-2, Faridabad Sector 22",
 			addressLocality: "Faridabad",
 			addressRegion: "Haryana",
+			postalCode: "121005",
 			addressCountry: "IN",
 		},
 		areaServed: {

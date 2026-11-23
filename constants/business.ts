@@ -8,7 +8,8 @@ export const business = {
 	email: "bhardwajaircon29@gmail.com",
 	instagram: "https://www.instagram.com/naveenbhardwaj9818/",
 	instagramHandle: "@naveenbhardwaj9818",
-	address: "Shop No. 116-117, Sector 65, HUDA Market, Faridabad",
+	address:
+		"House No-64, 60 Feet Road, Near Janhit Dharmasala, Parvatiya Colony Part-2, Sector 22, Faridabad, Haryana 121005",
 	serviceArea: "Serving Ballabgarh & all of Faridabad",
 	hours: "24/7 Emergency Service Available",
 	yearsExperience: 7,
