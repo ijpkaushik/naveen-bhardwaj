@@ -1,6 +1,6 @@
 export const siteUrl =
 	process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-	"https://naveenbhardwaj.vercel.app";
+	"https://bhardwajaircon.com";
 
 export const adsenseClientId =
 	process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID?.trim() || "";
