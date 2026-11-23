@@ -242,6 +242,9 @@ export function AmcIcon({ className }: IconProps) {
 export const serviceIconMap = {
 	"split-ac": AcIcon,
 	"window-ac": WindowAcIcon,
+	"ductable-ac": AcIcon,
+	"panel-ac": WindowAcIcon,
+	"cassette-ac": AcIcon,
 	electrical: ElectricalIcon,
 	"electric-geyser": GeyserIcon,
 	"gas-geyser": GasGeyserIcon,

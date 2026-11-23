@@ -30,7 +30,8 @@ export const serviceCategories: ServiceCategory[] = [
 	{
 		id: "cooling",
 		title: "Air Conditioning",
-		blurb: "Split & window AC install, gas charging, deep clean and summer AMC.",
+		blurb:
+			"Split, window, ductable, panel & cassette AC — install, gas charging, deep clean and AMC.",
 		iconId: "split-ac",
 	},
 	{
@@ -97,13 +98,31 @@ export const services: Service[] = [
 		highlights: ["Fitting", "Gas top-up", "Coil clean", "Motor repair"],
 	},
 	{
-		id: "air-cooler",
+		id: "ductable-ac",
 		categoryId: "cooling",
-		title: "Air Cooler Repair",
-		shortTitle: "Air Cooler",
+		title: "Ductable AC Repair & Service",
+		shortTitle: "Ductable AC",
 		description:
-			"Desert and personal air cooler service — pump, fan motor, cooling pads, and swing issues before peak summer.",
-		highlights: ["Pump", "Fan motor", "Cooling pads", "Swing"],
+			"Ductable / ducted AC installation, duct cleaning, gas charging, thermostat and commercial cooling maintenance.",
+		highlights: ["Duct install", "Gas charging", "Duct clean", "Commercial"],
+	},
+	{
+		id: "panel-ac",
+		categoryId: "cooling",
+		title: "Panel AC Repair & Service",
+		shortTitle: "Panel AC",
+		description:
+			"Panel AC servicing for offices and shops — cooling issues, PCB, gas top-up and filter cleaning.",
+		highlights: ["Office & shop", "Gas top-up", "PCB", "Filter clean"],
+	},
+	{
+		id: "cassette-ac",
+		categoryId: "cooling",
+		title: "Cassette AC Repair & Service",
+		shortTitle: "Cassette AC",
+		description:
+			"4-way cassette AC install and repair — drain pump, gas charging, remote/PCB faults and ceiling unit service.",
+		highlights: ["4-way cassette", "Drain pump", "Gas charging", "Ceiling unit"],
 	},
 	{
 		id: "electric-geyser",
@@ -239,6 +258,15 @@ export const services: Service[] = [
 		description:
 			"Ceiling fan installation, capacitor and regulator repair, exhaust and fresh-air fan fitting for kitchen and bath.",
 		highlights: ["Ceiling fan", "Capacitor", "Regulator", "Exhaust"],
+	},
+	{
+		id: "air-cooler",
+		categoryId: "home-electronics",
+		title: "Air Cooler Repair",
+		shortTitle: "Air Cooler",
+		description:
+			"Desert and personal air cooler service — pump, fan motor, cooling pads, and swing issues before peak summer.",
+		highlights: ["Pump", "Fan motor", "Cooling pads", "Swing"],
 	},
 	{
 		id: "electrical",
