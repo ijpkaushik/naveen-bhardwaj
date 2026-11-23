@@ -16,6 +16,18 @@ export function AcIcon({ className }: IconProps) {
 	);
 }
 
+export function WindowAcIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<rect x="10" y="14" width="44" height="36" rx="3" stroke="currentColor" strokeWidth="2.5" />
+			<path d="M10 26h44" stroke="currentColor" strokeWidth="2" />
+			<path d="M18 34h28M18 40h20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+			<circle cx="42" cy="40" r="3" stroke="currentColor" strokeWidth="2" />
+			<path d="M22 10h20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+		</svg>
+	);
+}
+
 export function ElectricalIcon({ className }: IconProps) {
 	return (
 		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
@@ -42,6 +54,17 @@ export function GeyserIcon({ className }: IconProps) {
 	);
 }
 
+export function GasGeyserIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<rect x="16" y="10" width="32" height="40" rx="4" stroke="currentColor" strokeWidth="2.5" />
+			<path d="M26 22c0 4 6 8 6 12a6 6 0 11-12 0c0-4 6-8 6-12z" stroke="currentColor" strokeWidth="2" />
+			<path d="M24 50v4M40 50v4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+			<path d="M22 16h20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+		</svg>
+	);
+}
+
 export function WashingMachineIcon({ className }: IconProps) {
 	return (
 		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
@@ -51,6 +74,30 @@ export function WashingMachineIcon({ className }: IconProps) {
 			<circle cx="20" cy="14" r="2.5" fill="currentColor" />
 			<circle cx="28" cy="14" r="2.5" fill="currentColor" />
 			<path d="M36 14h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+		</svg>
+	);
+}
+
+export function TopLoadWasherIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<rect x="14" y="10" width="36" height="44" rx="4" stroke="currentColor" strokeWidth="2.5" />
+			<path d="M20 18h24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+			<ellipse cx="32" cy="34" rx="12" ry="8" stroke="currentColor" strokeWidth="2" />
+			<path d="M26 34h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+			<path d="M22 54h20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+		</svg>
+	);
+}
+
+export function SemiAutoWasherIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<rect x="6" y="14" width="24" height="36" rx="3" stroke="currentColor" strokeWidth="2.5" />
+			<rect x="34" y="14" width="24" height="36" rx="3" stroke="currentColor" strokeWidth="2.5" />
+			<circle cx="18" cy="32" r="7" stroke="currentColor" strokeWidth="2" />
+			<circle cx="46" cy="32" r="7" stroke="currentColor" strokeWidth="2" />
+			<path d="M12 20h12M40 20h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
 		</svg>
 	);
 }
@@ -77,6 +124,81 @@ export function FreezerIcon({ className }: IconProps) {
 	);
 }
 
+export function MicrowaveIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<rect x="6" y="14" width="52" height="36" rx="3" stroke="currentColor" strokeWidth="2.5" />
+			<rect x="12" y="20" width="30" height="24" rx="2" stroke="currentColor" strokeWidth="2" />
+			<circle cx="50" cy="26" r="2.5" fill="currentColor" />
+			<circle cx="50" cy="34" r="2.5" fill="currentColor" />
+			<path d="M46 42h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+		</svg>
+	);
+}
+
+export function TvIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<rect x="6" y="12" width="52" height="34" rx="3" stroke="currentColor" strokeWidth="2.5" />
+			<path d="M22 52h20M32 46v6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+			<path d="M14 22h36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
+		</svg>
+	);
+}
+
+export function InductionIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<rect x="8" y="16" width="48" height="32" rx="3" stroke="currentColor" strokeWidth="2.5" />
+			<circle cx="32" cy="32" r="10" stroke="currentColor" strokeWidth="2" />
+			<circle cx="32" cy="32" r="4" stroke="currentColor" strokeWidth="2" />
+			<path d="M14 42h8M42 42h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+		</svg>
+	);
+}
+
+export function MixerIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<path d="M22 8h20l4 18H18L22 8z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+			<rect x="20" y="26" width="24" height="22" rx="3" stroke="currentColor" strokeWidth="2.5" />
+			<path d="M26 48v6h12v-6" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+			<path d="M28 34h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+		</svg>
+	);
+}
+
+export function ChimneyIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<path d="M10 28h44l-6 24H16L10 28z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+			<rect x="26" y="8" width="12" height="20" rx="2" stroke="currentColor" strokeWidth="2.5" />
+			<path d="M20 36h24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+		</svg>
+	);
+}
+
+export function CoolerIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<rect x="12" y="10" width="40" height="44" rx="3" stroke="currentColor" strokeWidth="2.5" />
+			<circle cx="32" cy="30" r="10" stroke="currentColor" strokeWidth="2" />
+			<path d="M32 22v16M24 30h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+			<path d="M20 48h24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+		</svg>
+	);
+}
+
+export function InverterIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<rect x="10" y="18" width="44" height="28" rx="3" stroke="currentColor" strokeWidth="2.5" />
+			<path d="M20 32h8l-4 8 12-12h-8l4-8-12 12z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+			<path d="M46 28v8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+		</svg>
+	);
+}
+
 export function RoIcon({ className }: IconProps) {
 	return (
 		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
@@ -88,6 +210,20 @@ export function RoIcon({ className }: IconProps) {
 			/>
 			<path d="M32 28v12M26 36h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
 			<path d="M18 54h28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.45" />
+		</svg>
+	);
+}
+
+export function FanIcon({ className }: IconProps) {
+	return (
+		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
+			<circle cx="32" cy="32" r="5" stroke="currentColor" strokeWidth="2.5" />
+			<path
+				d="M32 12c6 6 8 12 0 20-8-8-6-14 0-20zM52 32c-6 6-12 8-20 0 8-8 14-6 20 0zM32 52c-6-6-8-12 0-20 8 8 6 14 0 20zM12 32c6-6 12-8 20 0-8 8-14 6-20 0z"
+				stroke="currentColor"
+				strokeWidth="2"
+				strokeLinejoin="round"
+			/>
 		</svg>
 	);
 }
@@ -104,13 +240,26 @@ export function AmcIcon({ className }: IconProps) {
 }
 
 export const serviceIconMap = {
-	ac: AcIcon,
+	"split-ac": AcIcon,
+	"window-ac": WindowAcIcon,
 	electrical: ElectricalIcon,
-	geyser: GeyserIcon,
-	"washing-machine": WashingMachineIcon,
+	"electric-geyser": GeyserIcon,
+	"gas-geyser": GasGeyserIcon,
+	"wm-front": WashingMachineIcon,
+	"wm-top": TopLoadWasherIcon,
+	"wm-semi": SemiAutoWasherIcon,
 	refrigerator: FridgeIcon,
 	"deep-freezer": FreezerIcon,
+	microwave: MicrowaveIcon,
+	tv: TvIcon,
+	induction: InductionIcon,
+	mixer: MixerIcon,
+	chimney: ChimneyIcon,
+	"water-cooler": CoolerIcon,
+	"air-cooler": CoolerIcon,
+	inverter: InverterIcon,
 	ro: RoIcon,
+	fan: FanIcon,
 	amc: AmcIcon,
 } as const;
 

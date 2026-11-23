@@ -4,11 +4,11 @@ import { business } from "@/constants/business";
 export const metadata: Metadata = {
 	title: "Services",
 	description:
-		"AC repair & AMC, electrical wiring, geyser, washing machine, refrigerator, deep freezer and RO service in Faridabad by Bhardwaj Aircon.",
+		"Split & window AC, gas & electric geyser, front/top/semi washing machines, microwave, TV, fridge, RO and more — repair in Faridabad by Bhardwaj Aircon.",
 	openGraph: {
 		title: `Services | ${business.shortName}`,
 		description:
-			"Complete AC, electrical & appliance repair services across Faridabad and Ballabgarh.",
+			"Complete AC, geyser, washing machine, microwave, TV & appliance repair across Faridabad and Ballabgarh.",
 	},
 };
 

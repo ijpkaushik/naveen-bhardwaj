@@ -6,7 +6,7 @@ import { MapPin, Clock, Users, BadgeCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { business, whatsappLink } from "@/constants/business";
 import { serviceIconMap } from "@/components/vectors/ServiceIcons";
-import { services } from "@/constants/services";
+import { featuredCategories } from "@/constants/services";
 
 export default function AboutPage() {
 	const [mounted, setMounted] = useState(false);
@@ -98,7 +98,8 @@ export default function AboutPage() {
 							</li>
 							<li className="border-l-4 border-primary pl-4">
 								<strong className="block text-foreground">All major appliances</strong>
-								AC, geyser, washing machine, fridge, deep freezer, RO — one trusted number.
+								Split &amp; window AC, gas &amp; electric geyser, front / top / semi washers,
+								microwave, TV, fridge, RO &amp; more — one trusted number.
 							</li>
 							<li className="border-l-4 border-primary pl-4">
 								<strong className="block text-foreground">AMC that actually helps</strong>
@@ -107,18 +108,18 @@ export default function AboutPage() {
 						</ul>
 					</div>
 					<div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-						{services.slice(0, 4).map((service) => {
-							const Icon = serviceIconMap[service.id];
+						{featuredCategories.map((category) => {
+							const Icon = serviceIconMap[category.iconId];
 							return (
 								<div
-									key={service.id}
+									key={category.id}
 									className="flex flex-col items-center gap-3 bg-muted/50 px-3 py-6 text-center"
 								>
 									<div className="h-14 w-14 text-primary">
 										<Icon />
 									</div>
 									<span className="font-display text-sm uppercase tracking-wide">
-										{service.title}
+										{category.title}
 									</span>
 								</div>
 							);

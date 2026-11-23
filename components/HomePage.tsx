@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { business, telLink, whatsappLink } from "@/constants/business";
-import { services } from "@/constants/services";
+import { categorizedServices } from "@/constants/services";
 import { testimonials } from "@/constants/testimonials";
 import { serviceIconMap } from "@/components/vectors/ServiceIcons";
 import HomeGalleryTeaser from "@/components/HomeGalleryTeaser";
@@ -25,12 +25,17 @@ type Props = {
 
 export default function HomePage({ galleryItems }: Props) {
 	const [mounted, setMounted] = useState(false);
+	const [activeCategoryId, setActiveCategoryId] = useState(
+		categorizedServices[0]?.id ?? "cooling",
+	);
 
 	useEffect(() => {
 		setMounted(true);
 	}, []);
 
-	const featured = services.slice(0, 4);
+	const activeCategory =
+		categorizedServices.find((c) => c.id === activeCategoryId) ??
+		categorizedServices[0];
 
 	return (
 		<div className="relative w-full overflow-hidden">
@@ -67,7 +72,8 @@ export default function HomePage({ galleryItems }: Props) {
 						style={{ transitionDelay: "160ms" }}
 					>
 						Workshop portfolio &amp; same-day service by {business.owner} —
-						AC, wiring, geyser, washing machine and more across Faridabad.
+						split &amp; window AC, geysers, washers, kitchen &amp; more across
+						Faridabad.
 					</p>
 					<div
 						className={cn(
@@ -152,6 +158,7 @@ export default function HomePage({ galleryItems }: Props) {
 				</div>
 			</section>
 
+			{/* What we fix — interactive category explorer */}
 			<section className="w-full bg-background px-4 py-16 sm:px-6 md:py-20 lg:px-10">
 				<div className="mx-auto w-full max-w-[1400px]">
 					<div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
@@ -160,86 +167,226 @@ export default function HomePage({ galleryItems }: Props) {
 								What we fix
 							</p>
 							<h2 className="font-display mt-1 text-3xl font-extrabold uppercase md:text-5xl">
-								Complete comfort &amp; power
+								Pick a category
 							</h2>
+							<p className="mt-3 max-w-lg text-sm text-muted-foreground md:text-base">
+								Tap a group, then book the exact appliance — split AC to
+								microwave, all under one workshop.
+							</p>
 						</div>
 						<Button asChild variant="outline" className="gap-2 self-start">
 							<Link href="/services">
-								All services
+								Full services list
 								<ArrowRight className="h-4 w-4" />
 							</Link>
 						</Button>
 					</div>
-					<div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-						{featured.map((service, i) => {
-							const Icon = serviceIconMap[service.id];
-							return (
-								<div
-									key={service.id}
-									className={cn(
-										"group relative border-b-4 border-primary bg-muted/40 p-6 transition-all duration-500 hover:-translate-y-1 hover:bg-muted/70",
-										mounted ? "opacity-100" : "opacity-0",
-									)}
-									style={{ transitionDelay: `${180 + i * 70}ms` }}
-								>
-									<div className="mb-4 h-14 w-14 text-primary transition-transform duration-500 group-hover:scale-110">
-										<Icon />
-									</div>
-									<h3 className="font-display text-2xl uppercase tracking-wide">
-										{service.title}
-									</h3>
-									<p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-										{service.description}
-									</p>
-									<a
-										href={whatsappLink(
-											`Hi, I need ${service.title} in Faridabad. Please share availability.`,
+
+					<div className="grid gap-8 lg:grid-cols-[240px_1fr] lg:gap-12">
+						<div
+							className={cn(
+								"flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible lg:pb-0 transition-all duration-500",
+								mounted ? "opacity-100" : "opacity-0",
+							)}
+							role="tablist"
+							aria-label="Service categories"
+						>
+							{categorizedServices.map((category) => {
+								const Icon = serviceIconMap[category.iconId];
+								const active = category.id === activeCategoryId;
+								return (
+									<button
+										key={category.id}
+										type="button"
+										role="tab"
+										aria-selected={active}
+										onClick={() => setActiveCategoryId(category.id)}
+										className={cn(
+											"flex min-w-[148px] items-center gap-3 border-l-4 px-3 py-3 text-left transition-all duration-300 lg:min-w-0",
+											active
+												? "border-primary bg-primary/10 text-foreground"
+												: "border-transparent text-muted-foreground hover:border-primary/40 hover:bg-muted/50 hover:text-foreground",
 										)}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
 									>
-										Book on WhatsApp
-										<ArrowRight className="h-3.5 w-3.5" />
-									</a>
+										<span
+											className={cn(
+												"h-9 w-9 shrink-0 transition-colors",
+												active ? "text-primary" : "text-muted-foreground",
+											)}
+										>
+											<Icon />
+										</span>
+										<span>
+											<span className="font-display block text-sm uppercase tracking-wide">
+												{category.title}
+											</span>
+											<span className="text-[11px] text-muted-foreground">
+												{category.items.length} items
+											</span>
+										</span>
+									</button>
+								);
+							})}
+						</div>
+
+						<div
+							key={activeCategory.id}
+							className="animate-in fade-in-0 slide-in-from-bottom-2 duration-400"
+						>
+							<div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+								<div>
+									<h3 className="font-display text-3xl font-extrabold uppercase md:text-4xl">
+										{activeCategory.title}
+									</h3>
+									<p className="mt-1 max-w-xl text-sm text-muted-foreground">
+										{activeCategory.blurb}
+									</p>
 								</div>
-							);
-						})}
+								<a
+									href={whatsappLink(
+										`Hi, I need help with ${activeCategory.title} in Faridabad.`,
+									)}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+								>
+									Book this category
+									<ArrowRight className="h-3.5 w-3.5" />
+								</a>
+							</div>
+
+							<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4">
+								{activeCategory.items.map((item, i) => {
+									const Icon = serviceIconMap[item.id];
+									return (
+										<a
+											key={item.id}
+											href={whatsappLink(
+												`Hi, I need ${item.title} in Faridabad.`,
+											)}
+											target="_blank"
+											rel="noopener noreferrer"
+											className={cn(
+												"group relative flex min-h-[140px] flex-col justify-between overflow-hidden bg-navy p-4 text-white transition-transform duration-300 hover:-translate-y-1 sm:min-h-[160px] sm:p-5",
+												i === 0 && activeCategory.items.length > 1
+													? "sm:col-span-2 sm:min-h-[180px]"
+													: "",
+											)}
+										>
+											<span className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 text-primary/20 transition-transform duration-500 group-hover:scale-125 group-hover:text-primary/35">
+												<Icon />
+											</span>
+											<span className="relative h-10 w-10 text-primary sm:h-12 sm:w-12">
+												<Icon />
+											</span>
+											<span className="relative mt-6">
+												<span className="font-display block text-lg uppercase leading-tight tracking-wide sm:text-xl">
+													{item.shortTitle}
+												</span>
+												<span className="mt-1 block text-xs text-white/55 line-clamp-2">
+													{item.highlights.slice(0, 2).join(" · ")}
+												</span>
+											</span>
+										</a>
+									);
+								})}
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
 
 			<HomeGalleryTeaser items={galleryItems} />
 
-			<section className="w-full bg-navy py-16 text-white md:py-20">
-				<div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10">
-					<p className="text-sm font-semibold uppercase tracking-widest text-primary">
-						Built for every home
-					</p>
-					<h2 className="font-display mt-1 text-3xl font-extrabold uppercase md:text-5xl">
-						One number. Every appliance.
-					</h2>
-					<div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
-						{services.map((service, i) => {
-							const Icon = serviceIconMap[service.id];
-							return (
-								<div
-									key={service.id}
-									className={cn(
-										"flex flex-col items-center gap-3 border border-white/10 bg-white/5 px-3 py-5 text-center transition-all duration-500 hover:border-primary/50 hover:bg-white/10",
-										mounted ? "opacity-100" : "opacity-0",
-									)}
-									style={{ transitionDelay: `${100 + i * 40}ms` }}
-								>
-									<div className="h-12 w-12 text-primary">
-										<Icon />
-									</div>
-									<span className="font-display text-xs uppercase leading-tight tracking-wide text-white/85">
-										{service.title.split(" ")[0]}
+			{/* One number — service board of every item */}
+			<section className="relative w-full overflow-hidden bg-navy py-16 text-white md:py-20">
+				<div className="pointer-events-none absolute inset-0 circuit-grid opacity-25" />
+				<div className="relative mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10">
+					<div className="mb-12 max-w-2xl">
+						<p className="text-sm font-semibold uppercase tracking-widest text-primary">
+							Built for every home
+						</p>
+						<h2 className="font-display mt-2 text-4xl font-extrabold uppercase leading-[0.95] md:text-6xl">
+							One number.
+							<br />
+							<span className="text-primary">Every appliance.</span>
+						</h2>
+						<a
+							href={telLink()}
+							className="font-display mt-6 inline-block text-2xl font-extrabold tracking-tight transition-colors hover:text-primary md:text-3xl"
+						>
+							{business.phone}
+						</a>
+					</div>
+
+					<div className="grid gap-10 md:grid-cols-2 xl:grid-cols-4">
+						{categorizedServices.map((category, i) => (
+							<div
+								key={category.id}
+								className={cn(
+									"transition-all duration-500",
+									mounted ? "opacity-100" : "opacity-0",
+								)}
+								style={{ transitionDelay: `${80 + i * 40}ms` }}
+							>
+								<div className="mb-4 flex items-baseline gap-3 border-b border-primary/40 pb-2">
+									<span className="font-display text-xs text-primary">
+										{String(i + 1).padStart(2, "0")}
 									</span>
+									<h3 className="font-display text-lg uppercase tracking-wide">
+										{category.title}
+									</h3>
 								</div>
-							);
-						})}
+								<ul className="space-y-1">
+									{category.items.map((item, itemIndex) => {
+										const Icon = serviceIconMap[item.id];
+										return (
+											<li key={item.id}>
+												<a
+													href={whatsappLink(
+														`Hi, I need ${item.title} in Faridabad.`,
+													)}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="group flex items-center gap-3 py-2.5 text-white/75 transition-colors hover:text-primary"
+													style={{
+														transitionDelay: `${itemIndex * 20}ms`,
+													}}
+												>
+													<span className="flex h-8 w-8 items-center justify-center bg-white/5 text-primary transition-colors group-hover:bg-primary/20">
+														<span className="h-5 w-5">
+															<Icon />
+														</span>
+													</span>
+													<span className="font-display text-sm uppercase tracking-wide">
+														{item.shortTitle}
+													</span>
+													<ArrowRight className="ml-auto h-3.5 w-3.5 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
+												</a>
+											</li>
+										);
+									})}
+								</ul>
+							</div>
+						))}
+					</div>
+
+					<div className="mt-12 flex flex-wrap gap-3 border-t border-white/10 pt-8">
+						<Button asChild className="gap-2 bg-[#25D366] hover:bg-[#1ebe57]">
+							<a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+								WhatsApp to book
+							</a>
+						</Button>
+						<Button
+							asChild
+							variant="outline"
+							className="gap-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
+						>
+							<a href={telLink()}>
+								<Phone className="h-4 w-4" />
+								Call {business.phone}
+							</a>
+						</Button>
 					</div>
 				</div>
 			</section>
