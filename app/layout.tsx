@@ -13,113 +13,117 @@ import { business } from "@/constants/business";
 import { siteUrl } from "@/constants/site";
 
 const display = Barlow_Condensed({
-	subsets: ["latin"],
-	weight: ["600", "700", "800"],
-	variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-display",
 });
 
 const body = DM_Sans({
-	subsets: ["latin"],
-	weight: ["400", "500", "600", "700"],
-	variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
-	metadataBase: new URL(siteUrl),
-	title: {
-		default: `${business.shortName} | Electrical & Aircon Portfolio Faridabad`,
-		template: `%s | ${business.shortName}`,
-	},
-	description:
-		"Naveen Bhardwaj — electrical mechanic & AC specialist portfolio. Work gallery, AC AMC, wiring, geyser and appliance service across Faridabad. 24/7 support.",
-	keywords: [
-		"Bhardwaj Aircon",
-		"Naveen Bhardwaj",
-		"split AC repair Faridabad",
-		"window AC repair Faridabad",
-		"electric geyser repair",
-		"gas geyser repair",
-		"front load washing machine repair",
-		"top load washing machine repair",
-		"semi automatic washing machine",
-		"microwave repair Faridabad",
-		"LED TV repair Faridabad",
-		"RO repair Faridabad",
-		"electrical services Faridabad",
-		"Ballabgarh",
-		"Parvatiya Colony Sector 22 Faridabad",
-	],
-	authors: [{ name: business.owner }],
-	creator: business.owner,
-	publisher: business.name,
-	alternates: {
-		canonical: "/",
-	},
-	openGraph: {
-		type: "website",
-		locale: "en_IN",
-		url: siteUrl,
-		title: `${business.name} | Faridabad`,
-		description:
-			"24/7 AC, electrical & appliance repair in Faridabad. Call or WhatsApp Naveen Bhardwaj today.",
-		siteName: business.shortName,
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: `${business.name} | Faridabad`,
-		description:
-			"24/7 AC, electrical & appliance repair in Faridabad. Call or WhatsApp today.",
-	},
-	robots: {
-		index: true,
-		follow: true,
-		googleBot: {
-			index: true,
-			follow: true,
-			"max-video-preview": -1,
-			"max-image-preview": "large",
-			"max-snippet": -1,
-		},
-	},
-	category: "business",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${business.shortName} | Electrical & Aircon Portfolio Faridabad`,
+    template: `%s | ${business.shortName}`,
+  },
+  description:
+    "Naveen Bhardwaj — electrical mechanic & AC specialist portfolio. Work gallery, AC AMC, wiring, geyser and appliance service across Faridabad. 24/7 support.",
+  keywords: [
+    "Bhardwaj Aircon",
+    "Naveen Bhardwaj",
+    "split AC repair Faridabad",
+    "window AC repair Faridabad",
+    "electric geyser repair",
+    "gas geyser repair",
+    "front load washing machine repair",
+    "top load washing machine repair",
+    "semi automatic washing machine",
+    "microwave repair Faridabad",
+    "LED TV repair Faridabad",
+    "RO repair Faridabad",
+    "electrical services Faridabad",
+    "Ballabgarh",
+    "Parvatiya Colony Sector 22 Faridabad",
+  ],
+  authors: [{ name: business.owner }],
+  creator: business.owner,
+  publisher: business.name,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: siteUrl,
+    title: `${business.name} | Faridabad`,
+    description:
+      "24/7 AC, electrical & appliance repair in Faridabad. Call or WhatsApp Naveen Bhardwaj today.",
+    siteName: business.shortName,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${business.name} | Faridabad`,
+    description:
+      "24/7 AC, electrical & appliance repair in Faridabad. Call or WhatsApp today.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "business",
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en" suppressHydrationWarning>
-			<body
-				className={`${display.variable} ${body.variable} flex min-h-screen flex-col bg-background font-sans antialiased`}
-				style={{ fontFamily: "var(--font-body), ui-sans-serif, system-ui, sans-serif" }}
-			>
-				<JsonLd />
-				<AdSenseScript />
-				<a
-					href="#main-content"
-					className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:shadow-lg"
-				>
-					Skip to main content
-				</a>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="light"
-					enableSystem
-					disableTransitionOnChange
-				>
-					<div className="relative flex min-h-screen w-full flex-col">
-						<Navbar />
-						<main id="main-content" className="flex flex-1 flex-col">
-							{children}
-						</main>
-						<Footer />
-					</div>
-					<WhatsAppFab />
-					<CookieConsent />
-				</ThemeProvider>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <AdSenseScript />
+      </head>
+      <body
+        className={`${display.variable} ${body.variable} flex min-h-screen flex-col bg-background font-sans antialiased`}
+        style={{
+          fontFamily: "var(--font-body), ui-sans-serif, system-ui, sans-serif",
+        }}
+      >
+        <JsonLd />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative flex min-h-screen w-full flex-col">
+            <Navbar />
+            <main id="main-content" className="flex flex-1 flex-col">
+              {children}
+            </main>
+            <Footer />
+          </div>
+          <WhatsAppFab />
+          <CookieConsent />
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }
