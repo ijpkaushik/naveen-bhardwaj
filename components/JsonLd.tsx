@@ -15,12 +15,18 @@ export default function JsonLd() {
 		address: {
 			"@type": "PostalAddress",
 			streetAddress:
-				"House No-64, 60 Feet Road, Near Janhit Dharmasala, Parvatiya Colony Part-2, Faridabad Sector 22",
+				"House No-64, 60 Feet Road, Near Janhit Dharmasala, Parvatiya Colony Part-2, Sector 22, NIT 1",
 			addressLocality: "Faridabad",
 			addressRegion: "Haryana",
 			postalCode: "121005",
 			addressCountry: "IN",
 		},
+		geo: {
+			"@type": "GeoCoordinates",
+			latitude: business.lat,
+			longitude: business.lng,
+		},
+		hasMap: business.mapsUrl,
 		areaServed: {
 			"@type": "City",
 			name: "Faridabad",

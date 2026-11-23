@@ -9,7 +9,13 @@ export const business = {
 	instagram: "https://www.instagram.com/naveenbhardwaj9818/",
 	instagramHandle: "@naveenbhardwaj9818",
 	address:
-		"House No-64, 60 Feet Road, Near Janhit Dharmasala, Parvatiya Colony Part-2, Sector 22, Faridabad, Haryana 121005",
+		"House No-64, 60 Feet Road, Near Janhit Dharmasala, Parvatiya Colony Part-2, Sector 22, NIT 1, Faridabad, Haryana 121005",
+	mapsUrl:
+		"https://www.google.com/maps?q=28.3621403,77.2827173&z=17&hl=en",
+	mapsEmbedUrl:
+		"https://www.google.com/maps?q=28.3621403,77.2827173&z=17&hl=en&output=embed",
+	lat: 28.3621403,
+	lng: 77.2827173,
 	serviceArea: "Serving Ballabgarh & all of Faridabad",
 	hours: "24/7 Emergency Service Available",
 	yearsExperience: 7,

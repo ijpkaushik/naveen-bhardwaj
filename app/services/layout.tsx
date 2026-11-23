@@ -4,11 +4,11 @@ import { business } from "@/constants/business";
 export const metadata: Metadata = {
 	title: "Services",
 	description:
-		"Split, window, ductable, panel & cassette AC, geyser, washing machines, microwave, TV, fridge, RO and more — repair in Faridabad by Bhardwaj Aircon.",
+		"Split, window, ductable, panel & cassette AC, geyser, washing machines, microwave, fridge, RO and more — repair in Faridabad by Bhardwaj Aircon.",
 	openGraph: {
 		title: `Services | ${business.shortName}`,
 		description:
-			"Complete AC, geyser, washing machine, microwave, TV & appliance repair across Faridabad and Ballabgarh.",
+			"Complete AC, geyser, washing machine, microwave & appliance repair across Faridabad and Ballabgarh.",
 	},
 };
 

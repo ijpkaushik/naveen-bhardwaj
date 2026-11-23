@@ -99,7 +99,7 @@ export default function AboutPage() {
 							<li className="border-l-4 border-primary pl-4">
 								<strong className="block text-foreground">All major appliances</strong>
 								Split, window, ductable, panel &amp; cassette AC, gas &amp; electric geyser,
-								washers, microwave, TV, fridge, RO &amp; more — one trusted number.
+								washers, microwave, fridge, RO &amp; more — one trusted number.
 							</li>
 							<li className="border-l-4 border-primary pl-4">
 								<strong className="block text-foreground">AMC that actually helps</strong>

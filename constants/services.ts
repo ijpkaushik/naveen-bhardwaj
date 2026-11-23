@@ -55,14 +55,14 @@ export const serviceCategories: ServiceCategory[] = [
 	{
 		id: "kitchen",
 		title: "Kitchen Appliances",
-		blurb: "Microwave, induction, mixer grinder and chimney repair.",
+		blurb: "Microwave, induction cooktop and chimney repair.",
 		iconId: "microwave",
 	},
 	{
 		id: "home-electronics",
 		title: "Home Electronics",
-		blurb: "LED TV, RO purifier, fans and air cooler fixes for daily use.",
-		iconId: "tv",
+		blurb: "RO purifier, fans and air cooler fixes for daily use.",
+		iconId: "ro",
 	},
 	{
 		id: "electrical",
@@ -215,15 +215,6 @@ export const services: Service[] = [
 		highlights: ["Coil & PCB", "Touch panel", "Error codes", "All brands"],
 	},
 	{
-		id: "mixer",
-		categoryId: "kitchen",
-		title: "Mixer Grinder Repair",
-		shortTitle: "Mixer",
-		description:
-			"Mixer grinder motor rewind, jar coupling, overload switch, and blade service for daily kitchen use.",
-		highlights: ["Motor", "Jar coupling", "Overload", "Blades"],
-	},
-	{
 		id: "chimney",
 		categoryId: "kitchen",
 		title: "Kitchen Chimney Repair",
@@ -232,15 +223,16 @@ export const services: Service[] = [
 			"Auto-clean and filter chimney installation, motor noise, suction loss, and oil-collector servicing.",
 		highlights: ["Install", "Suction", "Motor noise", "Auto-clean"],
 	},
-	{
-		id: "tv",
-		categoryId: "home-electronics",
-		title: "LED / LCD TV Repair",
-		shortTitle: "LED TV",
-		description:
-			"Smart and LED/LCD TV service — no display, backlight, sound, motherboard, and wall-mount support.",
-		highlights: ["No display", "Backlight", "Sound", "Smart TV"],
-	},
+	// Temporarily hidden — restore when offering TV repair again
+	// {
+	// 	id: "tv",
+	// 	categoryId: "home-electronics",
+	// 	title: "LED / LCD TV Repair",
+	// 	shortTitle: "LED TV",
+	// 	description:
+	// 		"Smart and LED/LCD TV service — no display, backlight, sound, motherboard, and wall-mount support.",
+	// 	highlights: ["No display", "Backlight", "Sound", "Smart TV"],
+	// },
 	{
 		id: "ro",
 		categoryId: "home-electronics",

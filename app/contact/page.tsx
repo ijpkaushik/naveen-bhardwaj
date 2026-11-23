@@ -172,7 +172,7 @@ export default function Contact() {
 						</p>
 						<p className="mt-1 text-muted-foreground">{business.serviceArea}</p>
 						<a
-							href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(business.address)}`}
+							href={business.mapsUrl}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
@@ -213,6 +213,23 @@ export default function Contact() {
 							</a>
 						</Button>
 					</div>
+				</div>
+
+				<div
+					className={cn(
+						"mx-auto mt-8 w-full max-w-[1400px] overflow-hidden border border-border transition-all duration-700",
+						mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
+					)}
+					style={{ transitionDelay: "160ms" }}
+				>
+					<iframe
+						title={`${business.shortName} location map`}
+						src={business.mapsEmbedUrl}
+						className="h-[320px] w-full border-0 md:h-[420px]"
+						loading="lazy"
+						referrerPolicy="no-referrer-when-downgrade"
+						allowFullScreen
+					/>
 				</div>
 			</section>
 		</div>

@@ -157,17 +157,6 @@ export function InductionIcon({ className }: IconProps) {
 	);
 }
 
-export function MixerIcon({ className }: IconProps) {
-	return (
-		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
-			<path d="M22 8h20l4 18H18L22 8z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-			<rect x="20" y="26" width="24" height="22" rx="3" stroke="currentColor" strokeWidth="2.5" />
-			<path d="M26 48v6h12v-6" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-			<path d="M28 34h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-		</svg>
-	);
-}
-
 export function ChimneyIcon({ className }: IconProps) {
 	return (
 		<svg viewBox="0 0 64 64" fill="none" className={cn("h-full w-full", className)} aria-hidden>
@@ -254,9 +243,8 @@ export const serviceIconMap = {
 	refrigerator: FridgeIcon,
 	"deep-freezer": FreezerIcon,
 	microwave: MicrowaveIcon,
-	tv: TvIcon,
+	// tv: TvIcon, // temporarily unused — restore with TV service
 	induction: InductionIcon,
-	mixer: MixerIcon,
 	chimney: ChimneyIcon,
 	"water-cooler": CoolerIcon,
 	"air-cooler": CoolerIcon,
